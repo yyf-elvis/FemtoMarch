@@ -1,0 +1,92 @@
+.navigation{
+    width: 100%;
+    touch-action: manipulation;
+    position: sticky;
+    height: 72px;
+    top: 0;
+}
+.flexC{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.whinherit{
+    min-width: inherit;
+    min-height: inherit;
+}
+.navCotainer{
+    width: 100%;
+    flex:1 1 0%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    overflow: visible;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0%;
+}
+.logoBox{
+    position: relative;
+    width: 10%;
+    max-width: 116px;
+    min-width: 90px;
+    min-height: 0;
+    touch-action: manipulation;
+    z-index: 2;
+}
+.logoBox-inner{
+ cursor: pointer;   
+ height: 100%;
+ flex: 1 1 0%;
+ padding: 12px 4px;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ gap: 8px;
+ overflow: visible;
+ border-radius: 0%;
+}
+
+.menuCotainer{
+    height: 100%;
+    flex: 1 1 0%;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    overflow: visible;
+    border-radius: 0px;
+    position: relative;
+}
+
+.menuListCotainer{
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+}
+.language{
+    cursor: pointer;
+}
+.menu{
+    cursor: pointer; 
+    height: 100%;
+    flex: 1 1 0%;
+    padding: 4px;
+    display: flex;
+    gap: 8px;
+    overflow: visible;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 0;
+    font-size: var(--normalFont);
+    line-height: 1.5;
+}
+.menu:hover,.language:hover{
+    color: var(--theme);
+    transition: .3s;
+}

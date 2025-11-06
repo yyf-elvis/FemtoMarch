@@ -4,13 +4,6 @@
 
 <script setup>
 
-const {
-	windowWidth,
-	windowHeight,
-	briefStyle,
-	titleLineHeight,
-	negativeChildHeight
-} = useWindowFlex(props.childHeight);
 
 
 </script>

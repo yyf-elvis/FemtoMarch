@@ -1,0 +1,29 @@
+/* 接上一步的全局样式 */
+:root {
+  --theme: #01BBAE;
+  --gray: #F5F8FA;
+  --text: #383838;
+  --textGray: #606A76;
+  --normalFont:16px;
+  --middleFont:20px;
+}
+
+body.show a, body.show .transition, body.show :before, body.show img {
+  -webkit-transition: All .5s ease;
+  transition: All .5s ease;
+}
+
+html{
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* 1366 屏再放大一档 */
+@media (max-width: 1440px) {
+  .test { font-size: 24px; }
+}
+
+/* 手机再放大一档 */
+@media (max-width: 768px) {
+  .test { font-size: 36px; }
+}

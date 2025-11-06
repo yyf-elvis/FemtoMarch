@@ -1,14 +1,14 @@
 
 <template>
     <div>
-		<Navigation @update:height="handleHeightUpdate" />
-		<router-view :childHeight="childHeight" :style="{ marginTop: childHeight + 'px' }"/>
+		<Navigation />
+		<router-view />
 		<Footer />
 	</div>
 </template>
 
-<style scoped>
-  @import './assets/css/index.css';
+<style>
+ 
 </style>
 
 <script setup>

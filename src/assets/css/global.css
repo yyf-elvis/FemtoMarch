@@ -15,7 +15,8 @@ body.show a, body.show .transition, body.show :before, body.show img {
 
 html{
   color: var(--text);
-  overflow: hidden;
+  overflow-x:hidden;
+  position: relative;
 }
 
 /* 1366 屏再放大一档 */

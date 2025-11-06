@@ -1,22 +1,26 @@
-.navigation{
+.navigation {
     width: 100%;
     touch-action: manipulation;
     position: sticky;
     height: 72px;
     top: 0;
 }
-.flexC{
+
+.flexC {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
 }
-.whinherit{
+
+.whinherit {
     min-width: inherit;
     min-height: inherit;
 }
-.navCotainer{
+
+.navCotainer {
+    position: relative;
     width: 100%;
-    flex:1 1 0%;
+    flex: 1 1 0%;
     padding: 0 80px;
     display: flex;
     flex-direction: row;
@@ -28,7 +32,8 @@
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 0%;
 }
-.logoBox{
+
+.logoBox {
     position: relative;
     width: 10%;
     max-width: 116px;
@@ -37,23 +42,24 @@
     touch-action: manipulation;
     z-index: 2;
 }
-.logoBox-inner{
- cursor: pointer;   
- height: 100%;
- flex: 1 1 0%;
- padding: 12px 4px;
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- gap: 8px;
- overflow: visible;
- border-radius: 0%;
-}
 
-.menuCotainer{
+.logoBox-inner {
+    cursor: pointer;
     height: 100%;
     flex: 1 1 0%;
-    padding: 4px;
+    padding: 12px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    overflow: visible;
+    border-radius: 0%;
+}
+
+.menuCotainer {
+    height: 100%;
+    flex: 1 1 0%;
+    padding:0 4px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -64,19 +70,21 @@
     position: relative;
 }
 
-.menuListCotainer{
+.menuListCotainer {
     display: flex;
     flex-direction: row;
     gap: 28px;
 }
-.language{
+
+.language {
     cursor: pointer;
 }
-.menu{
-    cursor: pointer; 
+
+.menu {
+    cursor: pointer;
     height: 100%;
     flex: 1 1 0%;
-    padding: 4px;
+    padding:24px 4px;
     display: flex;
     gap: 8px;
     overflow: visible;
@@ -86,7 +94,104 @@
     font-size: var(--normalFont);
     line-height: 1.5;
 }
-.menu:hover,.language:hover{
+
+.menu:hover,
+.language:hover {
     color: var(--theme);
-    transition: .3s;
+    transition: .5s ease;
+}
+
+.menuList {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: block;
+    padding-inline-start: 40px;
+    z-index: 1000;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 72px;
+    padding-top: 24px;
+    padding: 20px 0;
+    border-top: 2px solid var(--theme);
+    transition: all 0.2s ease-in-out;
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    min-width: 126px;
+    color: var(--text);
+    text-align: center;
+    list-style: none;
+    background-color: white;
+    background-clip: padding-box;
+}
+
+.dropdown-menu li{
+    display: list-item;
+    unicode-bidi: isolate;
+    position: relative;
+    cursor: pointer;
+}
+.dropdown-menu li a{
+    padding: 0 20px;
+}
+.dropdown-menu li a:hover {
+    color: var(--theme);
+}
+.dropdown-menu .dropdown-item.active {
+    color: var(--theme);
+    background: transparent;
+}
+.dropdown-menu li:not(:first-child) {
+    margin-top: 10px;
+}
+.menuList:hover>.dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    margin: 0;
+}
+.navigation-trigger{
+    display: none;
+}
+
+/* 移动端 */
+@media (max-width: 990px) {
+  .menuCotainer{
+    display: none;
+  }
+  .navigation-trigger{
+    display: block;
+}
+  .navCotainer{
+    padding: 0 30px;
+    margin: 0 1px;
+  }
+  .navigation-trigger {
+    position: absolute;
+    z-index: 3;
+    top: 20px;
+    right: 30px;
+    width: 24px;
+    height: 24px;
+}
+  .navigation-trigger:hover {
+    cursor: pointer;
+}
+.navigation-trigger .line {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text);
+    transition: transform .3s;
+}
+.navigation-trigger .line-1 {
+    top: 10px;
+}
+.navigation-trigger .line-2 {
+    top: 18px;
+}
+
 }

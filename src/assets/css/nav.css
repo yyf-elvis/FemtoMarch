@@ -95,7 +95,14 @@
     font-size: var(--normalFont);
     line-height: 1.5;
 }
-
+.language .en::before {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        content: "\eaa7";
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
 .menu:hover,
 .language:hover {
     color: var(--theme);
@@ -157,15 +164,17 @@
 .navigation-trigger {
     display: none;
 }
+
 /* 页面上下滑动隐藏导航 */
 .navigation {
-  transition: transform 0.4s ease-in-out;
-  will-change: transform;
+    transition: transform 0.4s ease-in-out;
+    will-change: transform;
 }
 
 .navigation.nav-hidden {
-  transform: translateY(-100%);
+    transform: translateY(-100%);
 }
+
 /* 移动端 */
 @media (max-width: 990px) {
     .menuCotainer {
@@ -289,14 +298,13 @@
         font-size: 20px;
         display: block;
     }
-
     .dropdown-toggle::after {
         transition: all 0.2s ease-in-out;
         position: absolute;
         top: 50%;
         right: 0;
         font-family: "iconfont" !important;
-        font-size: 1rem;
+        font-size: 16px;
         content: "\e632";
         color: inherit;
         margin-top: -12px;

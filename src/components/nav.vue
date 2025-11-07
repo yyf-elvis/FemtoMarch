@@ -53,7 +53,7 @@
 					</div>
 				</div>
 				<div class="language">
-					<span>English</span>
+					<span class="en">English</span>
 				</div>
 			</div>
 			<!-- 移动端 -->

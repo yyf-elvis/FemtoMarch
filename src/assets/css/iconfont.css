@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-s1:before {
+  content: "\eaa7";
+}
+
 .icon-jia:before {
   content: "\e632";
 }

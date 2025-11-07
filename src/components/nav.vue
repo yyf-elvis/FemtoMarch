@@ -9,44 +9,67 @@
 			</div>
 			<div class="menuCotainer flexC">
 				<div class="menuListCotainer flexC">
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: activeMenu === 'home' }"
+						@click="setActiveMenu('home')"
+					>
 						<div class="menu">
 							首页
 						</div>
 					</div>
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
+					>
 						<div class="menu">
 							关于飞眸
 						</div>
 						<!-- 新增下拉菜单 -->
 						<ul class="dropdown-menu">
 							<li>
-								<a>公司简介</a>
+								<a @click.stop="setActiveMenu('company')">公司简介</a>
 							</li>
 							<li>
-								<a>企业文化</a>
+								<a @click.stop="setActiveMenu('culture')">企业文化</a>
 							</li>
 							<li>
-								<a>在飞眸工作</a>
+								<a @click.stop="setActiveMenu('career')">在飞眸工作</a>
 							</li>
 						</ul>
 					</div>
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: activeMenu === 'products' }"
+						@click="setActiveMenu('products')"
+					>
 						<div class="menu">
 							产品中心
 						</div>
 					</div>
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: activeMenu === 'news' }"
+						@click="setActiveMenu('news')"
+					>
 						<div class="menu">
 							新闻中心
 						</div>
 					</div>
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: activeMenu === 'service' }"
+						@click="setActiveMenu('service')"
+					>
 						<div class="menu">
 							客户服务
 						</div>
 					</div>
-					<div class="menuList whinherit flexC">
+					<div 
+						class="menuList whinherit flexC" 
+						:class="{ navActive: activeMenu === 'contact' }"
+						@click="setActiveMenu('contact')"
+					>
 						<div class="menu">
 							联系我们
 						</div>
@@ -57,7 +80,7 @@
 				</div>
 			</div>
 			<!-- 移动端 -->
-			<button class="navigation-trigger collapsed":class="{ show: isOpen }" @click="toggleModal">
+			<button class="navigation-trigger collapsed" :class="{ show: isOpen }" @click="toggleModal">
 				<span class="line line-1"></span>
 				<span class="line line-2"></span>
 			</button>
@@ -69,50 +92,52 @@
 		<div v-if="isOpen" class="modal-fullscreen" ref="modalRef">
 			<div class="modal-scrollable scrollable-content">
 				<ul class="mobile-navBar">
-					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link">
+					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('home')">
+						<a class="nav-link" :class="{ active: activeMenu === 'home' }">
 							首页
 						</a>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link dropdown-toggle":class="{ show: isDropdownOpen }" @click="toggleDropdown($event)">
+						<a class="nav-link dropdown-toggle" 
+						   :class="{ show: isDropdownOpen, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }" 
+						   @click="toggleDropdown($event)">
 							关于飞眸
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: isDropdownOpen }">
-							<li>
-								<a class="dropdown-item">
+							<li @click.stop="setActiveMenu('company')">
+								<a class="dropdown-item" :class="{ active: activeMenu === 'company' }">
 									企业简介
 								</a>
 							</li>
-							<li>
-								<a class="dropdown-item">
+							<li @click.stop="setActiveMenu('culture')">
+								<a class="dropdown-item" :class="{ active: activeMenu === 'culture' }">
 									企业文化
 								</a>
 							</li>
-							<li>
-								<a class="dropdown-item">
+							<li @click.stop="setActiveMenu('career')">
+								<a class="dropdown-item" :class="{ active: activeMenu === 'career' }">
 									在飞眸工作
 								</a>
 							</li>
 						</ul>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link">
+					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('products')">
+						<a class="nav-link" :class="{ active: activeMenu === 'products' }">
 							产品中心
 						</a>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link">
+					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('news')">
+						<a class="nav-link" :class="{ active: activeMenu === 'news' }">
 							新闻中心
 						</a>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link">
+					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('service')">
+						<a class="nav-link" :class="{ active: activeMenu === 'service' }">
 							客户中心
 						</a>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link">
+					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('contact')">
+						<a class="nav-link" :class="{ active: activeMenu === 'contact' }">
 							联系我们
 						</a>
 					</li>
@@ -131,9 +156,20 @@ const modalRef = ref()
 const isDropdownOpen = ref(false)
 const navigation = ref() // 导航栏DOM引用
 const isNavHidden = ref(false) // 导航栏隐藏状态
+const activeMenu = ref('home') // 当前激活的菜单
 
 let lastScrollTop = 0 // 上次滚动位置
 let ticking = false // 滚动节流标志
+
+// 设置激活菜单
+const setActiveMenu = (menu) => {
+  activeMenu.value = menu
+  // 如果是移动端，点击后关闭弹窗
+  if (isOpen.value) {
+    isOpen.value = false
+  }
+  console.log('当前激活菜单:', menu)
+}
 
 // 切换下拉菜单
 const toggleDropdown = (event) => {
@@ -221,4 +257,5 @@ watch(isOpen, (val) => {
 
 <style scoped>
 @import url("../assets/css/nav.css");
+@import url("../assets/css/nav-flex.css");
 </style>

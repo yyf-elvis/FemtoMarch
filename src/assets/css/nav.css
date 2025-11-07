@@ -1,10 +1,29 @@
 .navigation {
     width: 100%;
     touch-action: manipulation;
-    position: sticky;
+    position: fixed;
     height: 72px;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 9999;
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease;
+}
+/* 滚动时添加背景增强效果 */
+.navigation.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 隐藏导航栏时的样式 */
+.navigation.nav-hidden {
+    transform: translateY(-100%);
+}
+
+/* 为页面内容添加顶部padding，避免被导航栏遮挡 */
+:global(body) {
+    padding-top: 72px; /* 与导航栏高度一致 */
 }
 
 .flexC {
@@ -89,6 +108,7 @@
     border-radius: 0;
     font-size: var(--normalFont);
     line-height: 1.5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑过渡 */
 }
 .language .en::before {
         font-family: "iconfont" !important;
@@ -106,6 +126,7 @@
 
 .menuList {
     position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 添加平滑过渡 */
 }
 
 .dropdown-menu {
@@ -119,7 +140,7 @@
     padding-top: 24px;
     padding: 20px 0;
     border-top: 2px solid var(--theme);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 增强过渡效果 */
     display: block;
     pointer-events: none;
     opacity: 0;
@@ -140,6 +161,7 @@
 
 .dropdown-menu li a {
     padding: 0 20px;
+    transition: all 0.3s ease; /* 链接过渡 */
 }
 
 .dropdown-menu li a:hover {
@@ -170,179 +192,42 @@
     transform: translateY(-100%);
 }
 
-/* 移动端 */
-@media (max-width: 990px) {
-    .menuCotainer {
-        display: none;
-    }
+/* 导航激活状态样式 - 可自定义 */
+.navActive {
+    /* background-color: rgba(0, 102, 204, 0.1); */
 
-    .navigation-trigger {
-        display: block;
-    }
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑过渡 */
+}
 
-    .navCotainer {
-        padding: 0 30px;
-        margin: 0;
-        /* 关键修复：移除 margin: 0 1px */
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
+.navActive .menu {
+    color: var(--theme);
+    font-weight: 600;
+}
 
-    .navigation-trigger {
-        position: absolute;
-        z-index: 3;
-        top: 20px;
-        right: 30px;
-        width: 24px;
-        height: 24px;
-    }
+.mobile-navBar .nav-link.active,
+.mobile-dropdownMenu .dropdown-item.active {
+    color: var(--theme);
+    font-weight: 600;
+}
+/* 下划线动画效果 */
+.navActive::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--theme);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
 
-    .navigation-trigger:hover {
-        cursor: pointer;
+@keyframes slideIn {
+    from {
+        transform: scaleX(0);
     }
-
-    .navigation-trigger .line {
-        position: absolute;
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: var(--text);
-        transition: transform .3s;
+    to {
+        transform: scaleX(1);
     }
-
-    .navigation-trigger .line-1 {
-        top: 10px;
-    }
-
-    .navigation-trigger .line-2 {
-        top: 18px;
-    }
-
-    .navigation-trigger.show .line-1 {
-        transform: rotate(45deg);
-        top: 14px;
-    }
-
-    .navigation-trigger.show .line-2 {
-        transform: rotate(-45deg);
-        top: 14px;
-    }
-
-    /* 移动端菜单样式 */
-    .modal-fullscreen {
-        position: fixed;
-        inset: 0;
-        background: white;
-        z-index: 999;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        top: 72px;
-    }
-
-    .modal-header {
-        padding: 1.5rem;
-        background: #667eea;
-        color: white;
-        flex-shrink: 0;
-    }
-
-    .modal-scrollable {
-        flex: 1;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 0 24px;
-    }
-
-    /* 下拉动画 */
-    .dropdown-enter-active {
-        transition: transform 0.3s ease-out;
-    }
-
-    .dropdown-leave-active {
-        transition: transform 0.3s ease-in;
-    }
-
-    .dropdown-enter-from {
-        transform: translateY(-100%);
-    }
-
-    .dropdown-leave-to {
-        transform: translateY(-100%);
-    }
-
-    .mobile-navBar .nav-item {
-        border-bottom: 1px solid #dee2e6;
-    }
-
-    .mobile-dropdown {
-        position: relative;
-        display: block;
-    }
-
-    .dropdown-toggle {
-        position: relative;
-        cursor: pointer;
-    }
-
-    .nav-link {
-        color: var(--text);
-        padding: 8px 0;
-        font-weight: 600;
-        font-size: 20px;
-        display: block;
-    }
-    .dropdown-toggle::after {
-        transition: all 0.2s ease-in-out;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        font-family: "iconfont" !important;
-        font-size: 16px;
-        content: "\e632";
-        color: inherit;
-        margin-top: -12px;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        font-size: 20px;
-        color: var(--textGray);
-    }
-
-    .dropdown-toggle.show::after {
-        transform: rotate(45deg);
-    }
-
-    .mobile-dropdownMenu {
-        position: static;
-        margin-top: 2px;
-        padding: 0 0 24px 0;
-        display: none;
-    }
-
-    .mobile-dropdownMenu.show {
-        display: block;
-    }
-
-    .nav-link.show {
-        color: var(--theme);
-    }
-
-    .mobile-dropdownMenu li {
-        position: relative;
-    }
-
-    .mobile-dropdownMenu .dropdown-item {
-        padding: 2px 16px;
-        position: relative;
-        font-size: 16px;
-        display: block;
-        cursor: pointer;
-    }
-
-    .mobile-dropdownMenu .dropdown-item:hover {
-        color: var(--theme);
-    }
-
 }

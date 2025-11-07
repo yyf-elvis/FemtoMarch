@@ -1,0 +1,43 @@
+@media (max-width: 810px) {
+    .contentWarp{
+        padding: 20px;
+    }
+    .contentBox{
+        padding: 0px 8px;
+        gap: 5.6px;
+    }
+    .content{
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 32px;
+    }
+    .footerLeft{
+        width: 100%;
+        flex:0 0 auto;
+    }
+    .footerLeftCotainer{
+        gap: 12px;
+        width: 100%;
+    }
+    .footerRight{
+        width: 100%;
+        flex: 0 0 auto;
+    }
+    .footerRightBox{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 100%;
+    }
+    .footerListCotainer{
+        width: 100%;
+        flex: 0 0 auto;
+        height: auto;
+    }
+    .footerList{
+        width: 100%;
+    }
+    .qrcode{
+       
+    }
+}

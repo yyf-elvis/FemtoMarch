@@ -63,8 +63,8 @@
                                         <div class="followList">
                                             <span class="iconfont">&#xe600;</span>
                                         </div>
-                                        <div class="followList">
-                                            <span class="iconfont">&#xe601;</span>
+                                        <div class="followList qrcode">
+                                            <img src="../assets/img/qrcode.png">
                                         </div>
                                     </div>
                                 </div>
@@ -72,6 +72,14 @@
                         </div>
                     </div>
                 </div>
+            <div class="divider">
+                <div class="line"></div>
+            </div> 
+            <div class="ICPInfo">
+                Copyright © 2025 深圳市飞眸医疗器械技术有限公司&nbsp;&nbsp;&nbsp;
+                陕ICP备xxxxxxxx号&nbsp;&nbsp;&nbsp;
+                陕公网安备 xxxxxxxxxxxxxx号
+            </div>   
             </div>
         </div>
     </div>
@@ -83,4 +91,6 @@
 
 <style scoped>
 @import url("../assets/css/footer.css");
+@import url("../assets/css/footer-flex.css");
+
 </style>

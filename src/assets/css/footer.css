@@ -51,12 +51,12 @@
     z-index: 3;
     position: relative;
     flex: 1 1 0%;
-    padding: 8px 0px;
+    padding: 48px 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 5.6px;
+    gap: 8.4px;
     overflow: visible;
     border-radius: 0px;
 }
@@ -107,13 +107,11 @@
     max-width: 200px;
 }
 .slogan{
-    width: 100%;
     min-width: 0px;
     flex: 0 0 auto;
     min-height: 0px;
     touch-action: manipulation;
     z-index: 7;
-    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
@@ -160,17 +158,17 @@
 .footerList{
     width: 100%;
     min-width: 0px;
+    height: 40px;
     flex: 0 0 auto;
     min-height: 0px;
     touch-action: manipulation;
     z-index: 8;
     position: relative;
-    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 4px;
     color: rgba(255, 255, 255, 0.8);
-    font-style: normal;
+    font-size: 16px;
     letter-spacing: 0;
     line-height: 1.5;
     position: unset;
@@ -213,6 +211,50 @@
     z-index: 9;
     position: relative;
     cursor: pointer;
-    height: 24px;
     color: rgba(255, 255, 255, 0.8);
+}
+.divider{
+    width: 100%;
+    min-width: 0px;
+    height: 20px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 4;
+    position: relative;
+}
+.divider .line{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.ICPInfo{
+    width: 100%;
+    min-width: 0px;
+    max-width: 1200px;
+    flex: 0 0 auto;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 4;
+    position: relative;
+    padding: 0px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8.4px;
+    overflow: visible;
+    border-radius: 0px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+.qrcode{
+    display: block;
+    width: 88px;
+}
+.qrcode img{
+    display: block;
+    border-radius: 4px;
 }

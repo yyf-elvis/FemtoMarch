@@ -1,0 +1,218 @@
+.flexC {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.footerWarp{
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+    position: relative;
+    padding: 0;
+    flex: 1 1 0%;
+    display: flex;
+    touch-action: manipulation;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    overflow: visible;
+    background-image: url(/src/assets/img/footer-bg.webp);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footerCotainer{
+    width: 100%;
+    min-width: 0;
+    max-width: 1440px;
+    flex: 0 0 auto;
+    min-height: 0;
+    touch-action: manipulation;
+    z-index: 2;
+    position: relative;
+    display: flex;
+}
+.contentWarp{
+    width: 100%;
+    flex: 1 1 0%;
+    padding: 40px 120px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    overflow: visible;
+    border-radius: 0px;
+}
+.contentBox{
+    width: 100%;
+    min-width: 0px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 3;
+    position: relative;
+    flex: 1 1 0%;
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5.6px;
+    overflow: visible;
+    border-radius: 0px;
+}
+.content{
+    width: 100%;
+    flex: 1 1 0%;
+    padding: 4px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0px;
+    overflow: visible;
+    border-radius: 0px;
+}
+.footerLeft{
+    width: 20%;
+    min-width: 0px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 6;
+    position: relative;
+}
+.footerRight{
+    width: 50%;
+    min-width: 0px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 6;
+    position: relative;
+}
+.footerLeftCotainer{
+    flex: 1 1 0%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    overflow: visible;
+    border-radius: 0px;
+    height: 100%;
+}
+.logo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+}
+.slogan{
+    width: 100%;
+    min-width: 0px;
+    flex: 0 0 auto;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 7;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1.5;
+    position: unset;
+    white-space: pre-wrap;
+    hyphens: auto;
+}
+.footerRightBox{
+    flex: 1 1 0%;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0px;
+    overflow: visible;
+    border-radius: 0px;
+    height: 100%;
+}
+.footerListCotainer{
+    width: 28%;
+    min-width: 0px;
+    max-width: 960px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 7;
+    position: relative;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    overflow: visible;
+    border-radius: 0px;
+    height: 100%;
+}
+.footerList{
+    width: 100%;
+    min-width: 0px;
+    flex: 0 0 auto;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 8;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: normal;
+    letter-spacing: 0;
+    line-height: 1.5;
+    position: unset;
+    white-space: pre-wrap;
+    hyphens: auto;
+    cursor: pointer;
+}
+.footerList:hover,.followList:hover{
+    color: white;
+    transition: .5s;
+}
+.listTitle{
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    cursor: default;
+}
+.followUsCotainer{
+    width: 100%;
+    min-width: 0px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 8;
+    position: relative;
+    flex: 1 1 0%;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    overflow: visible;
+    border-radius: 0px;
+}
+.followList{
+    width: 24px;
+    min-width: 0px;
+    min-height: 0px;
+    touch-action: manipulation;
+    z-index: 9;
+    position: relative;
+    cursor: pointer;
+    height: 24px;
+    color: rgba(255, 255, 255, 0.8);
+}

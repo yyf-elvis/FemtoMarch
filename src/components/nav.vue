@@ -4,7 +4,7 @@
 			<!-- PC端 -->
 			<div class="logoBox flexC">
 				<div class="logoBox-inner whinherit">
-					<img src="../assets/img/logo.png">
+					<img src="../assets/img/logo.webp">
 				</div>
 			</div>
 			<div class="menuCotainer flexC">

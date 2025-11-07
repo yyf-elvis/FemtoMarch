@@ -18,6 +18,10 @@ html{
   overflow-x:hidden;
   position: relative;
 }
+.whinherit {
+    min-width: inherit;
+    min-height: inherit;
+}
 
 /* 1366 屏再放大一档 */
 @media (max-width: 1440px) {

@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-xiaohongshu:before {
+  content: "\e600";
+}
+
+.icon-douyin:before {
+  content: "\e601";
+}
+
 .icon-s1:before {
   content: "\eaa7";
 }

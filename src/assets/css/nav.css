@@ -13,11 +13,6 @@
     flex-shrink: 0;
 }
 
-.whinherit {
-    min-width: inherit;
-    min-height: inherit;
-}
-
 .navCotainer {
     position: relative;
     width: 100%;

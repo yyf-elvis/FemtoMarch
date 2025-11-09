@@ -133,7 +133,7 @@
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('service')">
 						<a class="nav-link" :class="{ active: activeMenu === 'service' }">
-							客户中心
+							客户服务
 						</a>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('contact')">

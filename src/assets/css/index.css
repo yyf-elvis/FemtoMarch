@@ -260,23 +260,67 @@
     height: 460px;
     justify-content: space-between;
     align-items: center;
-    gap: 80px; 
+    background-color:white;
 }
 .swiperBox{
+    width: 50%;
     height: 100%;
     flex: 1 0 0px;
 }
 .medalBox{
-    width: 52%;
+    width: 50%;
     position: relative;
     flex: 1 1 0%;
     padding: 60px 4px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
     gap: 8px;
     overflow: visible;
     border-radius: 0px;
     height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+    border-radius: 0px;
+    background-image: url('../img/medalBg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    padding-left: 88px;
+    padding-right: 88px;
+    color: white;
+}
+
+.medalItem{
+    flex: 1 0 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    overflow: visible;
+    border-radius: 12px;
+}
+.medalIcon{
+    height: 80px;
+    width: 80px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+}
+.medalImg{
+    width: 56px;
+}
+.medalIcon img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }

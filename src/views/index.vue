@@ -43,13 +43,20 @@
 
     <div class="medalWarp">
         <div class="swiperBox">
-        <SwiperComponent />
+            <SwiperComponent />
         </div>
         <div class="medalBox">
-            
+            <div v-for="(medal, index) in medalList" :key="index" class="medalItem">
+                <div class="medalIcon icon1">
+                    <div class="medalImg">
+                        <img :src="medal.icon" alt="" />
+                    </div>
+                </div>
+                <div class="medalText">{{ medal.text }}</div>
+            </div>
         </div>
     </div>
-    
+
     <div>
         新闻活动
     </div>
@@ -57,13 +64,21 @@
 
 <script setup>
 import SwiperComponent from '../components/swiperComponent.vue';
+// script setup 部分
+import medal1 from '@/assets/img/medal1.png'
+import medal2 from '@/assets/img/medal2.png'
+import medal3 from '@/assets/img/medal3.png'
+import medal4 from '@/assets/img/medal4.png'
+
+const medalList = [
+    { icon: medal1, text: '全国知识产权领先' },
+    { icon: medal2, text: '国家高新技术企业' },
+    { icon: medal3, text: '全国知识产权领先' },
+    { icon: medal4, text: '国家高新技术企业' }
+]
 </script>
 
 <style scoped>
 @import url("../assets/css/index.css");
 @import url("../assets/css/index-flex.css");
-
-.swiperBox {
-    width: 500px;
-}
 </style>

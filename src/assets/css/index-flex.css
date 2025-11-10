@@ -3,19 +3,22 @@
         -o-object-position: 7dvh 50%;
         object-position: 70% 50%;
     }
+
     .textContainer {
         max-width: 540px;
     }
-    
+
 }
 
 @media (max-width: 576px) {
     .background-cover {
         height: 30vh !important;
     }
-    .background picture img{
+
+    .background picture img {
         height: 30vh !important;
     }
+
     .textContainer {
         padding-left: 40px;
         padding-right: 40px;
@@ -32,16 +35,20 @@
     .background-cover {
         height: 30vh !important;
     }
-    .background picture img{
+
+    .background picture img {
         height: 30vh !important;
     }
-    h1{
+
+    h1 {
         font-size: 40px !important;
     }
+
     .fs-lg {
         font-size: 18px !important;
     }
-    .briefBox{
+
+    .briefBox {
         width: 100%;
     }
 }
@@ -55,16 +62,35 @@
         -webkit-mask-image: none !important;
         mask-image: none !important;
     }
-    .mb-9{
+
+    .mb-9 {
         margin-bottom: 0;
     }
-    .col-lg-5{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+
+    .col-lg-5 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
-    .textContainer button{
+
+    .textContainer button {
         margin: 50px auto 0 auto;
+    }
+    .medalWarp{
+        flex: 0 0 auto;
+        padding: 0 0 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0px;
+        height: auto;
+    }
+    .swiperBox{
+        width: 100% !important;
+        height: auto;
+    }
+    .medalBox{
+        width: 100%;
+        flex: 0 0 auto;
     }
 }
 
@@ -96,10 +122,10 @@
         flex: 0 0 auto;
         width: 41.66667%;
     }
+
     .textContainer {
         max-width: 1145px;
     }
 }
-@media (min-width: 1200px) {
-    
-}
+
+@media (min-width: 1200px) {}

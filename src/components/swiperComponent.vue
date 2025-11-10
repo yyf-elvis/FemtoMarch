@@ -30,9 +30,9 @@ export default {
     data() {
         return {
             slides: [
-                { image: '/slide/logo.webp', alt: 'Slide 1' },
+                { image: '/slide/slide1.png', alt: 'Slide 1' },
                 { image: '/slide/reddot.png', alt: 'Slide 2' },
-                { image: '/slide/banner.png', alt: 'Slide 3' },
+                { image: '/slide/slide2.png', alt: 'Slide 3' },
             ],
         };
     },

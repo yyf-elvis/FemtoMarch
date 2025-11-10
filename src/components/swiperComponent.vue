@@ -15,6 +15,9 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import slide1 from '@/assets/img/slide1.png';
+import reddot from '@/assets/img/reddot.png';
+import slide2 from '@/assets/img/slide2.png';
 
 export default {
     name: 'swiperComponent',
@@ -30,9 +33,9 @@ export default {
     data() {
         return {
             slides: [
-                { image: '/slide/slide1.png', alt: 'Slide 1' },
-                { image: '/slide/reddot.png', alt: 'Slide 2' },
-                { image: '/slide/slide2.png', alt: 'Slide 3' },
+                { image: slide1, alt: 'Slide 1' },
+                { image: reddot, alt: 'Slide 2' },
+                { image: slide2, alt: 'Slide 3' },
             ],
         };
     },

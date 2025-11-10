@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-jiantou_xiangyou:before {
+  content: "\eb08";
+}
+
 .icon-xiaohongshu:before {
   content: "\e600";
 }
@@ -28,4 +32,3 @@
 .icon-jia:before {
   content: "\e632";
 }
-

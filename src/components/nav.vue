@@ -3,74 +3,46 @@
 		<div class="navCotainer whinherit">
 			<!-- PC端 -->
 			<div class="logoBox flexC">
-				<div class="logoBox-inner whinherit">
+				<router-link to="/" class="logoBox-inner whinherit" @click="setActiveMenu('home')">
 					<img src="../assets/img/logo.webp">
-				</div>
+				</router-link>
 			</div>
 			<div class="menuCotainer flexC">
 				<div class="menuListCotainer flexC">
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: activeMenu === 'home' }"
-						@click="setActiveMenu('home')"
-					>
-						<div class="menu">
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'home' }">
+						<router-link to="/" class="menu" @click="setActiveMenu('home')">
 							首页
-						</div>
+						</router-link>
 					</div>
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
-					>
-						<div class="menu">
+					<div class="menuList whinherit flexC"
+						:class="{ navActive: ['about', 'company', 'culture', 'career'].includes(activeMenu) }">
+						<div class="menu" @click="setActiveMenu('about')">
 							关于飞眸
 						</div>
-						<!-- 新增下拉菜单 -->
+						<!-- 下拉菜单 -->
 						<ul class="dropdown-menu">
-							<li>
-								<a @click.stop="setActiveMenu('company')">公司简介</a>
-							</li>
-							<li>
-								<a @click.stop="setActiveMenu('culture')">企业文化</a>
-							</li>
-							<li>
-								<a @click.stop="setActiveMenu('career')">在飞眸工作</a>
-							</li>
+							<li @click.stop="handleSubMenuClick('company')">公司简介</li>
+							<li @click.stop="handleSubMenuClick('culture')">企业文化</li>
+							<li @click.stop="handleSubMenuClick('career')">在飞眸工作</li>
 						</ul>
 					</div>
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: activeMenu === 'products' }"
-						@click="setActiveMenu('products')"
-					>
-						<div class="menu">
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'products' }">
+						<router-link to="/product" class="menu" @click="setActiveMenu('products')">
 							产品中心
-						</div>
+						</router-link>
 					</div>
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: activeMenu === 'news' }"
-						@click="setActiveMenu('news')"
-					>
-						<div class="menu">
-							新闻中心
-						</div>
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'news' }">
+						<router-link to="/newsCenter" class="menu" @click="setActiveMenu('news')">
+							飞眸动态
+						</router-link>
 					</div>
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: activeMenu === 'service' }"
-						@click="setActiveMenu('service')"
-					>
-						<div class="menu">
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'service' }">
+						<router-link to="/customerService" class="menu" @click="setActiveMenu('service')">
 							客户服务
-						</div>
+						</router-link>
 					</div>
-					<div 
-						class="menuList whinherit flexC" 
-						:class="{ navActive: activeMenu === 'contact' }"
-						@click="setActiveMenu('contact')"
-					>
-						<div class="menu">
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'contact' }">
+						<div class="menu" @click="setActiveMenu('contact')">
 							联系我们
 						</div>
 					</div>
@@ -87,57 +59,54 @@
 		</div>
 	</div>
 
-	<!-- 全屏弹窗 -->
+	<!-- 移动端全屏弹窗 -->
 	<transition name="dropdown">
 		<div v-if="isOpen" class="modal-fullscreen" ref="modalRef">
 			<div class="modal-scrollable scrollable-content">
 				<ul class="mobile-navBar">
-					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('home')">
-						<a class="nav-link" :class="{ active: activeMenu === 'home' }">
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<router-link to="/" class="nav-link" :class="{ active: activeMenu === 'home' }"
+							@click="closeModal(); setActiveMenu('home')">
 							首页
-						</a>
+						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link dropdown-toggle" 
-						   :class="{ show: isDropdownOpen, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }" 
-						   @click="toggleDropdown($event)">
+						<a class="nav-link dropdown-toggle"
+							:class="{ show: isDropdownOpen, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
+							@click="toggleDropdown($event)">
 							关于飞眸
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: isDropdownOpen }">
-							<li @click.stop="setActiveMenu('company')">
-								<a class="dropdown-item" :class="{ active: activeMenu === 'company' }">
-									企业简介
-								</a>
-							</li>
-							<li @click.stop="setActiveMenu('culture')">
-								<a class="dropdown-item" :class="{ active: activeMenu === 'culture' }">
-									企业文化
-								</a>
-							</li>
-							<li @click.stop="setActiveMenu('career')">
-								<a class="dropdown-item" :class="{ active: activeMenu === 'career' }">
-									在飞眸工作
-								</a>
-							</li>
+							<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
+								@click="handleSubMenuClick('company')">企业简介</li>
+							<li class="dropdown-item" :class="{ active: activeMenu === 'culture' }"
+								@click="handleSubMenuClick('culture')">企业文化</li>
+							<li class="dropdown-item" :class="{ active: activeMenu === 'career' }"
+								@click="handleSubMenuClick('career')">在飞眸工作</li>
 						</ul>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('products')">
-						<a class="nav-link" :class="{ active: activeMenu === 'products' }">
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<router-link to="/product" class="nav-link" :class="{ active: activeMenu === 'products' }"
+							@click="closeModal(); setActiveMenu('products')">
 							产品中心
-						</a>
+						</router-link>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('news')">
-						<a class="nav-link" :class="{ active: activeMenu === 'news' }">
-							新闻中心
-						</a>
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<router-link to="/newsCenter" class="nav-link" :class="{ active: activeMenu === 'news' }"
+							@click="closeModal(); setActiveMenu('news')">
+							飞眸动态
+						</router-link>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('service')">
-						<a class="nav-link" :class="{ active: activeMenu === 'service' }">
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<router-link to="/customerService" class="nav-link"
+							:class="{ active: activeMenu === 'service' }"
+							@click="closeModal(); setActiveMenu('service')">
 							客户服务
-						</a>
+						</router-link>
 					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover" @click="setActiveMenu('contact')">
-						<a class="nav-link" :class="{ active: activeMenu === 'contact' }">
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<a class="nav-link" :class="{ active: activeMenu === 'contact' }"
+							@click="closeModal(); setActiveMenu('contact')">
 							联系我们
 						</a>
 					</li>
@@ -149,109 +118,123 @@
 
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 const isOpen = ref(false)
 const modalRef = ref()
 const isDropdownOpen = ref(false)
-const navigation = ref() // 导航栏DOM引用
-const isNavHidden = ref(false) // 导航栏隐藏状态
-const activeMenu = ref('home') // 当前激活的菜单
+const navigation = ref()
+const isNavHidden = ref(false)
+const route = useRoute()
+const router = useRouter()
 
-let lastScrollTop = 0 // 上次滚动位置
-let ticking = false // 滚动节流标志
+const activeMenu = ref('home')
 
-// 设置激活菜单
+watch(() => route.path, (newPath) => {
+	if (newPath === '/') activeMenu.value = 'home'
+	else if (newPath === '/product') activeMenu.value = 'products'
+	else if (newPath === '/newsCenter') activeMenu.value = 'news'
+	else if (newPath === '/customerService') activeMenu.value = 'service'
+	else if (newPath.startsWith('/news/')) activeMenu.value = 'news'
+}, { immediate: true })
+
 const setActiveMenu = (menu) => {
-  activeMenu.value = menu
-  // 如果是移动端，点击后关闭弹窗
-  if (isOpen.value) {
-    isOpen.value = false
-  }
-  console.log('当前激活菜单:', menu)
+	activeMenu.value = menu
+	// 关闭移动端弹窗
+	if (isOpen.value) {
+		isOpen.value = false
+	}
 }
 
-// 切换下拉菜单
+const handleSubMenuClick = (menu) => {
+	setActiveMenu(menu)
+	// 这里可以添加路由跳转逻辑
+	// router.push(`/about/${menu}`)
+}
+
+// 移动端关闭弹窗
+const closeModal = () => {
+	isOpen.value = false
+	isDropdownOpen.value = false
+}
+
+// 下拉菜单切换
 const toggleDropdown = (event) => {
-  event.preventDefault()
-  isDropdownOpen.value = !isDropdownOpen.value
+	event.preventDefault()
+	isDropdownOpen.value = !isDropdownOpen.value
 }
 
-// 滚动事件处理
+// 滚动相关
+let lastScrollTop = 0
+let ticking = false
 const handleScroll = () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  
-  // 页面在顶部时强制显示导航栏
-  if (scrollTop <= 0) {
-    isNavHidden.value = false
-  } else {
-    // 向下滚动：隐藏，向上滚动：显示
-    if (scrollTop > lastScrollTop) {
-      isNavHidden.value = true
-    } else {
-      isNavHidden.value = false
-    }
-  }
-  
-  lastScrollTop = scrollTop
+	const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+	if (scrollTop <= 0) {
+		isNavHidden.value = false
+	} else {
+		if (scrollTop > lastScrollTop) {
+			isNavHidden.value = true
+		} else {
+			isNavHidden.value = false
+		}
+	}
+	lastScrollTop = scrollTop
 }
 
-// 使用 requestAnimationFrame 优化滚动性能
 const optimizedScrollHandler = () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      handleScroll()
-      ticking = false
-    })
-    ticking = true
-  }
+	if (!ticking) {
+		window.requestAnimationFrame(() => {
+			handleScroll()
+			ticking = false
+		})
+		ticking = true
+	}
 }
 
-// 窗口大小监听
 const handleResize = () => {
-  if (window.innerWidth > 990 && isOpen.value) {
-    isOpen.value = false
-  }
+	if (window.innerWidth > 990 && isOpen.value) {
+		isOpen.value = false
+	}
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', optimizedScrollHandler, { passive: true })
-  window.addEventListener('resize', handleResize)
+	window.addEventListener('scroll', optimizedScrollHandler, { passive: true })
+	window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', optimizedScrollHandler)
-  window.removeEventListener('resize', handleResize)
-  document.documentElement.style.overflow = ''
-  document.body.style.overflow = ''
-  enableBodyScroll(document.body)
+	window.removeEventListener('scroll', optimizedScrollHandler)
+	window.removeEventListener('resize', handleResize)
+	document.documentElement.style.overflow = ''
+	document.body.style.overflow = ''
+	enableBodyScroll(document.body)
 })
 
 const toggleModal = () => {
-  isOpen.value = !isOpen.value
-  if (!isOpen.value) {
-    isDropdownOpen.value = false
-  }
+	isOpen.value = !isOpen.value
+	if (!isOpen.value) {
+		isDropdownOpen.value = false
+	}
 }
 
 watch(isOpen, (val) => {
-  if (val) {
-    // 打开弹窗时强制显示导航栏
-    isNavHidden.value = false
-    document.documentElement.style.overflow = 'hidden'
-    document.body.style.overflow = 'hidden'
-    disableBodyScroll(document.body, {
-      allowTouchMove: (el) => {
-        return el.classList.contains('scrollable-content') || 
-               el.closest('.scrollable-content') !== null
-      }
-    })
-  } else {
-    document.documentElement.style.overflow = ''
-    document.body.style.overflow = ''
-    enableBodyScroll(document.body)
-    isDropdownOpen.value = false
-  }
+	if (val) {
+		isNavHidden.value = false
+		document.documentElement.style.overflow = 'hidden'
+		document.body.style.overflow = 'hidden'
+		disableBodyScroll(document.body, {
+			allowTouchMove: (el) => {
+				return el.classList.contains('scrollable-content') ||
+					el.closest('.scrollable-content') !== null
+			}
+		})
+	} else {
+		document.documentElement.style.overflow = ''
+		document.body.style.overflow = ''
+		enableBodyScroll(document.body)
+		isDropdownOpen.value = false
+	}
 })
 </script>
 

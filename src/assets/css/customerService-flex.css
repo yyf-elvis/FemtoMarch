@@ -45,11 +45,21 @@
     }
 
     .fs-lg {
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
-
-    .briefBox {
-        width: 100%;
+    .contact{
+        font-size: 16px;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+    .warp{
+        margin-top: 40px;
+    }
+    .manualWarp{
+        margin-top: 40px;
+    }
+    .warp .title{
+        font-size: 28px;
     }
 }
 
@@ -58,13 +68,11 @@
         width: 100%;
         max-width: 720px;
         margin: auto;
-        margin-bottom: 16px;
     }
 }
 
 @media (max-width:1200px) {
     .background-cover {
-        position: static;
         height: 30vh;
         width: 100%;
         display: block;
@@ -81,31 +89,20 @@
         flex-direction: column;
         text-align: center;
     }
-
-    .textContainer button {
-        margin: 50px auto 0 auto;
-    }
-    .medalWarp{
-        flex: 0 0 auto;
-        padding: 0 0 40px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0px;
-        height: auto;
-    }
-    .swiperBox{
-        width: 100% !important;
-        height: auto;
-    }
-    .medalBox{
-        width: 100%;
-        flex: 0 0 auto;
-    }
-    .newsTitle .title{
+    .support{
         text-align: center;
     }
     .markBar{
         margin: 12px auto 0;
+    }
+    .manualWarp{
+        text-align: center;
+    }
+    .manual {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 120px;
     }
 }
 
@@ -119,23 +116,23 @@
     }
 
     .py-lg-10 {
-        padding-top: 96px !important;
-        padding-bottom: 96px !important;
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
     }
 
     .min-vh-lg-50 {
-        min-height: 50vh !important;
+        min-height: 20vh !important;
     }
 
     .textContainer {
-        max-width: 1120px;
+        max-width: 1145px;
         display: flex;
         flex-direction: column;
     }
 
     .col-lg-5 {
         flex: 0 0 auto;
-        width: 46.66667%;
+
     }
 
 }

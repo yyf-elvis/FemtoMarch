@@ -4,6 +4,7 @@
   --gray: #F5F8FA;
   --text: #383838;
   --textGray: #606A76;
+  --btnHover: #01CCBE;
   --normalFont:16px;
   --middleFont:20px;
 }
@@ -12,7 +13,10 @@ body.show a, body.show .transition, body.show :before, body.show img {
   -webkit-transition: All .5s ease;
   transition: All .5s ease;
 }
-
+*{
+  text-decoration: none;
+  color: inherit;
+}
 html{
   color: var(--text);
   overflow-x:hidden;
@@ -21,6 +25,15 @@ html{
 .whinherit {
     min-width: inherit;
     min-height: inherit;
+}
+
+.markBar{
+  border-top-color: var(--theme);
+  border-top-width: 8px;
+  border-top-style: solid;
+  border-right: 6px solid transparent;
+  width: 52px;
+  height: 0;
 }
 
 /* 1366 屏再放大一档 */

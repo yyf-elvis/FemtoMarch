@@ -2,7 +2,7 @@
     <div class="bannerContainer mb-9 mb-lg-0">
         <div class="background background-cover">
             <picture>
-                <img class="w-100 h-100 img-cover" src="../assets/img/banner.png">
+                <img class="w-100 h-100 img-cover" src="../assets/img/banner-index.png">
             </picture>
         </div>
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
@@ -14,7 +14,9 @@
                     <div class="fs-lg">
                         我们最新的眼科飞秒激光治疗系统，用于屈光手术治疗速度快，操作界面智能，性价比更高。
                     </div>
-                    <button>了解详情</button>
+                    <router-link to="/product">
+                        <button>了解详情</button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -57,18 +59,45 @@
         </div>
     </div>
 
-    <div>
-        新闻活动模块没做着
+    <div class="newsWarp">
+        <div class="newsTitle">
+            <div class="title">新闻及活动</div>
+            <div class="markBar"></div>
+        </div>
+        <div class="newsContainer">
+            <router-link v-for="news in newsList" :key="news.id" :to="{ path: `/news/${news.id}` }" class="newsItem">
+                <div class="newsBox">
+                    <div class="newsPic">
+                        <figure :style="{ backgroundImage: `url(${news.imageUrl})` }"></figure>
+                    </div>
+                    <div class="cardBody">
+                        <time>{{ news.date }}</time>
+                        <h3 class="cardTitle">{{ news.title }}</h3>
+                        <i class="cardIcon"></i>
+                    </div>
+                </div>
+            </router-link>
+        </div>
     </div>
+    <RouterLink to="/newsCenter" class="moreBtn">
+        <button class="moreNews">
+            查看更多
+            <i class="moreIcon"></i>
+        </button>
+    </RouterLink>
 </template>
 
 <script setup>
-import SwiperComponent from '../components/swiperComponent.vue';
+import { ref } from 'vue'
+import SwiperComponent from '../components/swiperComponent.vue'
 // script setup 部分
+// 引入奖章图片
 import medal1 from '@/assets/img/medal1.png'
 import medal2 from '@/assets/img/medal2.png'
 import medal3 from '@/assets/img/medal3.png'
 import medal4 from '@/assets/img/medal4.png'
+// 引入新闻图片
+import slide1 from '@/assets/img/slide1.png'
 
 const medalList = [
     { icon: medal1, text: '全国知识产权领先' },
@@ -76,6 +105,27 @@ const medalList = [
     { icon: medal3, text: '全国知识产权领先' },
     { icon: medal4, text: '国家高新技术企业' }
 ]
+
+const newsList = ref([
+    {
+        id: 1,  // 添加唯一ID
+        date: '2025.12.23',
+        title: '飞眸医疗，入驻丰泽科技园',
+        imageUrl: slide1
+    },
+    {
+        id: 2,
+        date: '2025.12.22',
+        title: '科技创新引领未来发展',
+        imageUrl: slide1
+    },
+    {
+        id: 3,
+        date: '2025.12.21',
+        title: '智慧医疗新里程碑',
+        imageUrl: slide1
+    }
+])
 </script>
 
 <style scoped>

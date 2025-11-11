@@ -51,13 +51,11 @@
 }
 
 .row {
-    --bs-gutter-x: 32px;
-    --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;
-    margin-top: calc(-1 * var(--bs-gutter-y));
-    margin-right: calc(-.5 * var(--bs-gutter-x));
-    margin-left: calc(-.5 * var(--bs-gutter-x));
+    margin-top:0;
+    margin-right:32px;
+    margin-left: 32px;
 }
 
 .my-auto {
@@ -96,7 +94,7 @@
 }
 
 .textContainer button:hover {
-    background-color: #01CCBE;
+    background-color: var(--btnHover);
     box-shadow: 0px 4px 20px 0px rgba(176, 99, 73, 0.25);
 }
 
@@ -250,7 +248,7 @@
     transition: .3s;
 }
 
-.medalWarp{
+.medalWarp {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -260,14 +258,16 @@
     height: 460px;
     justify-content: space-between;
     align-items: center;
-    background-color:white;
+    background-color: white;
 }
-.swiperBox{
+
+.swiperBox {
     width: 50%;
     height: 100%;
     flex: 1 0 0px;
 }
-.medalBox{
+
+.medalBox {
     width: 50%;
     position: relative;
     flex: 1 1 0%;
@@ -286,13 +286,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     padding-left: 88px;
     padding-right: 88px;
     color: white;
 }
 
-.medalItem{
+.medalItem {
     flex: 1 0 0px;
     position: relative;
     display: flex;
@@ -303,7 +303,8 @@
     overflow: visible;
     border-radius: 12px;
 }
-.medalIcon{
+
+.medalIcon {
     height: 80px;
     width: 80px;
     padding: 12px;
@@ -316,11 +317,194 @@
     background-color: rgb(255, 255, 255);
     border-radius: 100px;
 }
-.medalImg{
+
+.medalImg {
     width: 56px;
 }
-.medalIcon img{
+
+.medalIcon img {
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+/* 新闻及活动 */
+.newsWarp {
+    margin: 90px auto 32px auto;
+    max-width: 1236px;
+}
+
+.newsTitle {
+    margin-left: 16px;
+}
+
+.newsTitle .title {
+    font-size: 36px;
+    color: var(--text);
+    line-height: 54px;
+    font-weight: 800;
+    width: 100%;
+}
+
+.markBar {
+    margin-top: 16px;
+}
+
+.newsContainer {
+  --bs-gutter-x: 32px;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 42px;
+}
+
+.newsItem {
+  flex: 0 0 auto;
+  width: 33.33333%;
+  max-width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.newsBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  height: 100% !important;
+  background-color: #f6f6f6 !important;
+  overflow: hidden; /* 关键：确保放大效果不溢出 */
+}
+
+.newsPic {
+  margin: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #F6F6F6; /* 图片加载失败时的备用背景 */
+  overflow: hidden;
+}
+
+.newsPic::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+/* 新增：figure 的样式 */
+.newsPic figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s ease; /* 过渡动画 */
+}
+
+.cardBody {
+  word-wrap: break-word;
+  flex: 1 1 auto;
+  padding: 32px 32px;
+  position: relative;
+}
+
+.cardBody time {
+  color: var(--theme);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.cardBody .cardTitle {
+  margin-bottom: 32px;
+  transition: color 0.3s ease;
+  color: var(--text);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cardBody .cardIcon {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  font-size: 8px;
+  color: var(--theme);
+  transition: transform 0.2s ease;
+}
+
+.cardIcon::before {
+  content: "\e602";
+  display: inline-block;
+  font-family: iconfont !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -3px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 悬停效果 */
+.newsItem:hover .cardTitle {
+  color: var(--theme) !important;
+}
+
+.newsItem:hover .cardIcon {
+  transform: translateX(5px);
+}
+
+/* 关键：图片放大效果 - 现在作用于 figure 标签 */
+.newsItem:hover .newsPic figure {
+  transform: scale(1.1); /* 鼠标悬停时图片放大1.1倍 */
+}
+
+.moreBtn{
+    display: block;
+    width: 100%;
+    margin-top: 32px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 120px;
+}
+
+.moreNews{
+    margin: auto;
+    width: 164px;
+    height: 54px;
+    border: solid 2px #D3D3D3;
+}
+.moreIcon::before{
+  content: "\e602";
+  display: inline-block;
+  font-family: iconfont !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: 5px;
+  -webkit-font-smoothing: antialiased;
+  font-size: 5px;
+  margin-left: 8px;
+}
+.moreBtn button:hover{
+    background-color: var(--theme);
+    color:white;
+    border-color: var(--theme);
+    transition: .3s;
+    box-shadow: 0px 4px 20px 0px rgba(176, 99, 73, 0.25);
+}
+.moreBtn button:active:focus{
+    box-shadow:0 0 4px var(--theme);
 }

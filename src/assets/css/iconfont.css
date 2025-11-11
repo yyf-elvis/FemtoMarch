@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-icon_more:before {
+  content: "\e602";
+}
+
 .icon-jiantou_xiangyou:before {
   content: "\eb08";
 }

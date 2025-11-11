@@ -15,6 +15,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+// 引入轮播图片
 import slide1 from '@/assets/img/slide1.png';
 import reddot from '@/assets/img/reddot.png';
 import slide2 from '@/assets/img/slide2.png';

@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-duihao:before {
+  content: "\e615";
+}
+
 .icon-icon_more:before {
   content: "\e602";
 }

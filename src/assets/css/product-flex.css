@@ -47,18 +47,32 @@
     .fs-lg {
         font-size: 18px !important;
     }
-
-    .briefBox {
-        width: 100%;
+    .warp{
+        margin-top: 40px;
+    }
+    .manualWarp{
+        margin-top: 40px;
+    }
+    .warp .title{
+        font-size: 28px;
     }
 }
 
 @media (max-width: 920px) {
-    .newsItem{
+    .newsItem {
         width: 100%;
         max-width: 720px;
         margin: auto;
-        margin-bottom: 16px;
+    }
+    .advantageBox{
+        flex-direction: column;
+    }
+    .productPic,.advantageText{
+        width: 100%;
+        text-align: center;
+    }
+    .advantageText{
+        margin-top: 40px;
     }
 }
 
@@ -81,31 +95,26 @@
         flex-direction: column;
         text-align: center;
     }
-
-    .textContainer button {
-        margin: 50px auto 0 auto;
+    .row{
+        display: inline-block;
     }
-    .medalWarp{
-        flex: 0 0 auto;
-        padding: 0 0 40px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0px;
-        height: auto;
-    }
-    .swiperBox{
-        width: 100% !important;
-        height: auto;
-    }
-    .medalBox{
-        width: 100%;
-        flex: 0 0 auto;
-    }
-    .newsTitle .title{
-        text-align: center;
+    .fs-lg{
+        display: none;
     }
     .markBar{
         margin: 12px auto 0;
+    }
+    .manualWarp{
+        text-align: center;
+    }
+    .manual {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 120px;
+    }
+    .productInfo{
+        margin-top: 0px;
     }
 }
 
@@ -119,16 +128,16 @@
     }
 
     .py-lg-10 {
-        padding-top: 96px !important;
-        padding-bottom: 96px !important;
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
     }
 
     .min-vh-lg-50 {
-        min-height: 90vh !important;
+        min-height: 48vh !important;
     }
 
     .textContainer {
-        max-width: 1120px;
+        max-width: 1145px;
         display: flex;
         flex-direction: column;
     }
@@ -137,5 +146,4 @@
         flex: 0 0 auto;
         width: 46.66667%;
     }
-
 }

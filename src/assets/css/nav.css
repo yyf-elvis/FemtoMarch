@@ -50,6 +50,10 @@
     border-radius: 0%;
 }
 
+.navCotainer.nav-open {
+    background-color: #fff;
+}
+
 .logoBox {
     position: relative;
     width: 10%;

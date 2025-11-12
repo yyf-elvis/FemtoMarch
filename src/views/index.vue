@@ -2,7 +2,7 @@
     <div class="bannerContainer mb-9 mb-lg-0">
         <div class="background background-cover">
             <picture>
-                <img class="w-100 h-100 img-cover" src="../assets/img/banner-index.png">
+                <img class="w-100 h-100 img-cover" src="../assets/img/banner-index.webp">
             </picture>
         </div>
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">

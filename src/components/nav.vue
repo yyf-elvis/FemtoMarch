@@ -1,6 +1,6 @@
 <template>
 	<div ref="navigation" class="navigation flexC" :class="{ 'nav-hidden': isNavHidden }">
-		<div class="navCotainer whinherit">
+		<div class="navCotainer whinherit" :class="{ 'nav-open': isOpen }">
 			<!-- PC端 -->
 			<div class="logoBox flexC">
 				<router-link to="/" class="logoBox-inner whinherit" @click="setActiveMenu('home')">

@@ -1,13 +1,12 @@
 @media (min-width: 576px) {
     .background picture img {
         -o-object-position: 7dvh 50%;
-        object-position: 70% 50%;
+        object-position: 50% 50%;
     }
 
     .textContainer {
         max-width: 540px;
     }
-
 }
 
 @media (max-width: 576px) {
@@ -45,21 +44,24 @@
     }
 
     .fs-lg {
-        font-size: 18px !important;
+        font-size: 16px !important;
+    }
+    .warp {
+        margin-top: 40px;
+    }
+
+    .warp .title {
+        font-size: 28px;
     }
 }
 
 @media (max-width: 920px) {
-    .newsItem{
-        width: 100%;
-        max-width: 720px;
-        margin: auto;
-    }
+
 }
 
 @media (max-width:1200px) {
     .background-cover {
-        position: static;
+        height: 30vh;
         width: 100%;
         display: block;
         -webkit-mask-image: none !important;
@@ -75,9 +77,6 @@
         flex-direction: column;
         text-align: center;
     }
-    .pt-5{
-        padding-top: 0;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -90,12 +89,8 @@
     }
 
     .py-lg-10 {
-        padding-top: 50px !important;
-        padding-bottom: 50px !important;
-    }
-
-    .min-vh-lg-50 {
-        min-height: 43vh !important;
+        padding-top: 86px !important;
+        padding-bottom: 86px !important;
     }
 
     .textContainer {
@@ -106,7 +101,7 @@
 
     .col-lg-5 {
         flex: 0 0 auto;
-        width: 41.66667%;
+
     }
 
 }

@@ -116,12 +116,8 @@
     }
 
     .py-lg-10 {
-        padding-top: 50px !important;
-        padding-bottom: 50px !important;
-    }
-
-    .min-vh-lg-50 {
-        min-height: 20vh !important;
+        padding-top: 86px !important;
+        padding-bottom: 86px !important;
     }
 
     .textContainer {

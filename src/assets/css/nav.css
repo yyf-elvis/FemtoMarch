@@ -163,20 +163,21 @@
     background-clip: padding-box;
 }
 
-.dropdown-menu li {
+.dropdown-menu a {
     display: list-item;
     unicode-bidi: isolate;
     position: relative;
     cursor: pointer;
 }
 
-.dropdown-menu li a {
+.dropdown-menu a {
     padding: 0 20px;
     transition: all 0.3s ease;
+    margin-bottom: 10px;
     /* 链接过渡 */
 }
 
-.dropdown-menu li a:hover {
+.dropdown-menu a:hover {
     color: var(--theme);
 }
 

@@ -21,9 +21,21 @@
 						</div>
 						<!-- 下拉菜单 -->
 						<ul class="dropdown-menu">
-							<li @click.stop="handleSubMenuClick('company')">公司简介</li>
-							<li @click.stop="handleSubMenuClick('culture')">企业文化</li>
-							<li @click.stop="handleSubMenuClick('career')">在飞眸工作</li>
+							<router-link to="/company" class="dropdown-item"
+								:class="{ active: activeMenu === 'company' }"
+								@click="handleSubMenuClick('company')">
+							公司简介
+							</router-link>
+							<router-link to="/culture" class="dropdown-item"
+								:class="{ active: activeMenu === 'culture' }"
+								@click="handleSubMenuClick('culture')">
+							企业文化
+							</router-link>
+							<router-link to="/career" class="dropdown-item"
+								:class="{ active: activeMenu === 'career' }"
+								@click="handleSubMenuClick('career')">
+							在飞眸工作
+							</router-link>
 						</ul>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'products' }">
@@ -42,9 +54,9 @@
 						</router-link>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'contact' }">
-						<div class="menu" @click="setActiveMenu('contact')">
+						<router-link to="/contactUs" class="menu" @click="setActiveMenu('contact')">
 							联系我们
-						</div>
+						</router-link>
 					</div>
 				</div>
 				<div class="language">
@@ -77,12 +89,18 @@
 							关于飞眸
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: isDropdownOpen }">
-							<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
-								@click="handleSubMenuClick('company')">企业简介</li>
-							<li class="dropdown-item" :class="{ active: activeMenu === 'culture' }"
-								@click="handleSubMenuClick('culture')">企业文化</li>
-							<li class="dropdown-item" :class="{ active: activeMenu === 'career' }"
-								@click="handleSubMenuClick('career')">在飞眸工作</li>
+							<router-link to="/">
+								<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
+									@click="handleSubMenuClick('company')">企业简介</li>
+							</router-link>
+							<router-link to="/culture">
+								<li class="dropdown-item" :class="{ active: activeMenu === 'culture' }"
+									@click="handleSubMenuClick('culture')">企业文化</li>
+							</router-link>
+							<router-link to="/career">
+								<li class="dropdown-item" :class="{ active: activeMenu === 'career' }"
+									@click="handleSubMenuClick('career')">在飞眸工作</li>
+							</router-link>
 						</ul>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
@@ -105,10 +123,10 @@
 						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
-						<a class="nav-link" :class="{ active: activeMenu === 'contact' }"
+						<router-link to="/contactUs" class="nav-link" :class="{ active: activeMenu === 'contact' }"
 							@click="closeModal(); setActiveMenu('contact')">
 							联系我们
-						</a>
+						</router-link>
 					</li>
 				</ul>
 			</div>
@@ -131,12 +149,31 @@ const router = useRouter()
 
 const activeMenu = ref('home')
 
+// 定义路径与菜单的映射关系
+const pathToMenuMap = {
+  '/': 'home',
+  '/company': 'about',
+  '/culture': 'about',
+  '/career': 'about',
+  '/product': 'products',
+  '/newsCenter': 'news',
+  '/customerService': 'service',
+  '/contactUs': 'contact',
+}
+
 watch(() => route.path, (newPath) => {
-	if (newPath === '/') activeMenu.value = 'home'
-	else if (newPath === '/product') activeMenu.value = 'products'
-	else if (newPath === '/newsCenter') activeMenu.value = 'news'
-	else if (newPath === '/customerService') activeMenu.value = 'service'
-	else if (newPath.startsWith('/news/')) activeMenu.value = 'news'
+  // 先精确匹配
+  if (pathToMenuMap[newPath]) {
+    activeMenu.value = pathToMenuMap[newPath]
+  } 
+  // 再处理动态路径（如新闻详情）
+  else if (newPath.startsWith('/news/')) {
+    activeMenu.value = 'news'
+  }
+  // 兜底处理
+  else {
+    activeMenu.value = 'home'
+  }
 }, { immediate: true })
 
 const setActiveMenu = (menu) => {
@@ -234,6 +271,9 @@ watch(isOpen, (val) => {
 		document.body.style.overflow = ''
 		enableBodyScroll(document.body)
 		isDropdownOpen.value = false
+		setTimeout(() => {
+      enableBodyScroll(document.body)
+    }, 300)
 	}
 })
 </script>

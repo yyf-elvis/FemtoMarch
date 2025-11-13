@@ -5,8 +5,13 @@ import router from './router'
 import './assets/css/reset.css'
 import './assets/css/global.css'
 import './assets/css/iconfont.css'
+import './assets/css/vScrollReveal.css'
+import vScrollReveal from './assets/js/vScrollReveal'
+
 
 const app = createApp(App)
+
+app.directive('scroll-reveal', vScrollReveal)
 app.use(router)
 app.mount('#app')
 

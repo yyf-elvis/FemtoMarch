@@ -1,0 +1,242 @@
+.history-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Swiper轮播图样式 */
+.swiper-section {
+  position: relative;
+  margin-bottom: 60px;
+  max-width: 1120px;
+  margin: auto;
+}
+
+.history-swiper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+}
+
+.slide-info h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.slide-info p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* 自定义导航按钮 */
+.custom-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  pointer-events: all;
+}
+
+.nav-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nav-btn svg {
+  color: #333;
+}
+
+/* 时间轴样式 */
+.timeline-section {
+  position: relative;
+  padding: 20px 0;
+  overflow: hidden; /* 防止线条溢出 */
+}
+
+.timeline-wrapper {
+  display: flex;
+  padding: 40px 0;
+  position: relative;
+  
+  /* 自定义滚动条样式（可选） */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #888 #f1f1f1; /* Firefox */
+}
+
+/* Webkit滚动条美化 */
+.timeline-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* 独立的水平线 */
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+  transform: translateY(-50%);
+  pointer-events: none; /* 不阻挡点击事件 */
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 140px; /* 调整最小宽度，避免移动端过度挤压 */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #e0e0e0;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.timeline-item.active .timeline-dot {
+  background: var(--theme);
+  box-shadow: 0 0 0 2px var(--theme);
+  transform: scale(1.5);
+}
+
+.timeline-content {
+  width: 100%;
+  text-align: center;
+  padding: 10px 5px;
+  transition: all 0.3s ease;
+}
+
+
+.timeline-year {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.timeline-item.active .timeline-year {
+  color: var(--theme);
+  font-size: 20px;
+}
+
+.timeline-title {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.4;
+}
+
+.timeline-item.active .timeline-title {
+  color: #333;
+  font-weight: 500;
+}
+
+/* 滚动条样式 */
+.timeline-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .slide-info h2 {
+    font-size: 24px;
+  }
+  
+  .slide-info p {
+    font-size: 16px;
+  }
+  
+  .timeline-item {
+    min-width: 120px;
+  }
+  
+  .timeline-year {
+    font-size: 16px;
+  }
+  
+  .timeline-title {
+    font-size: 12px;
+  }
+}

@@ -89,7 +89,7 @@
 							关于飞眸
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: isDropdownOpen }">
-							<router-link to="/">
+							<router-link to="/company">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
 									@click="handleSubMenuClick('company')">企业简介</li>
 							</router-link>

@@ -1,0 +1,103 @@
+Date : 2025-11-13 16:06:13
+Directory : d:\vs项目\FemtoMarch
+Total : 58 files,  6267 codes, 104 comments, 654 blanks, all 7025 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| PostCSS            |         27 |      3,358 |         73 |        509 |      3,940 |
+| JSON               |          2 |      1,439 |          0 |          2 |      1,441 |
+| vue                |         18 |      1,278 |          9 |        126 |      1,413 |
+| JavaScript         |          5 |        129 |         22 |         13 |        164 |
+| XML                |          3 |         39 |          0 |          1 |         40 |
+| HTML               |          1 |         15 |          0 |          1 |         16 |
+| JSON with Comments |          1 |          8 |          0 |          1 |          9 |
+| Markdown           |          1 |          1 |          0 |          1 |          2 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                       | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                          |         58 |      6,267 |        104 |        654 |      7,025 |
+| . (Files)                                                  |          7 |      1,480 |         11 |          6 |      1,497 |
+| public                                                     |          1 |         20 |          0 |          1 |         21 |
+| src                                                        |         50 |      4,767 |         93 |        647 |      5,507 |
+| src (Files)                                                |          3 |         34 |         10 |         12 |         56 |
+| src\assets                                                 |         29 |      3,413 |         74 |        513 |      4,000 |
+| src\assets (Files)                                         |          1 |          1 |          0 |          0 |          1 |
+| src\assets\css                                             |         26 |      3,358 |         73 |        508 |      3,939 |
+| src\assets\img                                             |          1 |         18 |          0 |          0 |         18 |
+| src\assets\js                                              |          1 |         36 |          1 |          5 |         42 |
+| src\components                                             |          5 |        663 |          8 |         64 |        735 |
+| src\router                                                 |          1 |         64 |          0 |          3 |         67 |
+| src\views                                                  |         12 |        593 |          1 |         55 |        649 |
+| src\views (Files)                                          |          9 |        572 |          1 |         43 |        616 |
+| src\views\news                                             |          3 |         21 |          0 |         12 |         33 |
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                   | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\vs项目\FemtoMarch\README.md                               | Markdown           |          1 |          0 |          1 |          2 |
+| d:\vs项目\FemtoMarch\index.html                              | HTML               |         15 |          0 |          1 |         16 |
+| d:\vs项目\FemtoMarch\jsconfig.json                           | JSON with Comments |          8 |          0 |          1 |          9 |
+| d:\vs项目\FemtoMarch\package-lock.json                       | JSON               |      1,413 |          0 |          1 |      1,414 |
+| d:\vs项目\FemtoMarch\package.json                            | JSON               |         26 |          0 |          1 |         27 |
+| d:\vs项目\FemtoMarch\public\favicon.svg                      | XML                |         20 |          0 |          1 |         21 |
+| d:\vs项目\FemtoMarch\src\App.vue                             | vue                |         22 |          0 |          7 |         29 |
+| d:\vs项目\FemtoMarch\src\CompanyHistory.css                  | PostCSS            |          0 |          0 |          1 |          1 |
+| d:\vs项目\FemtoMarch\src\assets\css\CompanyHistory.css       | PostCSS            |        197 |          8 |         37 |        242 |
+| d:\vs项目\FemtoMarch\src\assets\css\career-flex.css          | PostCSS            |         91 |          0 |         22 |        113 |
+| d:\vs项目\FemtoMarch\src\assets\css\career.css               | PostCSS            |        116 |          0 |         20 |        136 |
+| d:\vs项目\FemtoMarch\src\assets\css\company-flex.css         | PostCSS            |        103 |          0 |         22 |        125 |
+| d:\vs项目\FemtoMarch\src\assets\css\company.css              | PostCSS            |         95 |          0 |         14 |        109 |
+| d:\vs项目\FemtoMarch\src\assets\css\contactUs-flex.css       | PostCSS            |        106 |          0 |         25 |        131 |
+| d:\vs项目\FemtoMarch\src\assets\css\contactUs.css            | PostCSS            |        116 |          2 |         17 |        135 |
+| d:\vs项目\FemtoMarch\src\assets\css\culture-flex.css         | PostCSS            |        126 |          0 |         24 |        150 |
+| d:\vs项目\FemtoMarch\src\assets\css\culture.css              | PostCSS            |        131 |          0 |         13 |        144 |
+| d:\vs项目\FemtoMarch\src\assets\css\customerService-flex.css | PostCSS            |        113 |          0 |         22 |        135 |
+| d:\vs项目\FemtoMarch\src\assets\css\customerService.css      | PostCSS            |        158 |          4 |         25 |        187 |
+| d:\vs项目\FemtoMarch\src\assets\css\footer-flex.css          | PostCSS            |         42 |          0 |          1 |         43 |
+| d:\vs项目\FemtoMarch\src\assets\css\footer.css               | PostCSS            |        260 |          0 |          0 |        260 |
+| d:\vs项目\FemtoMarch\src\assets\css\global.css               | PostCSS            |         41 |          3 |          4 |         48 |
+| d:\vs项目\FemtoMarch\src\assets\css\iconfont.css             | PostCSS            |         34 |          0 |          8 |         42 |
+| d:\vs项目\FemtoMarch\src\assets\css\index-flex.css           | PostCSS            |        125 |          0 |         24 |        149 |
+| d:\vs项目\FemtoMarch\src\assets\css\index.css                | PostCSS            |        444 |         13 |         54 |        511 |
+| d:\vs项目\FemtoMarch\src\assets\css\nav-flex.css             | PostCSS            |        150 |          3 |         29 |        182 |
+| d:\vs项目\FemtoMarch\src\assets\css\nav.css                  | PostCSS            |        205 |         13 |         31 |        249 |
+| d:\vs项目\FemtoMarch\src\assets\css\newsCenter-flex.css      | PostCSS            |         91 |          0 |         22 |        113 |
+| d:\vs项目\FemtoMarch\src\assets\css\newsCenter.css           | PostCSS            |        170 |          4 |         25 |        199 |
+| d:\vs项目\FemtoMarch\src\assets\css\product-flex.css         | PostCSS            |        132 |          0 |         20 |        152 |
+| d:\vs项目\FemtoMarch\src\assets\css\product.css              | PostCSS            |        199 |          3 |         34 |        236 |
+| d:\vs项目\FemtoMarch\src\assets\css\reset.css                | PostCSS            |         32 |          1 |          2 |         35 |
+| d:\vs项目\FemtoMarch\src\assets\css\swiperComponent.css      | PostCSS            |         71 |         17 |         12 |        100 |
+| d:\vs项目\FemtoMarch\src\assets\css\vScrollReveal.css        | PostCSS            |         10 |          2 |          1 |         13 |
+| d:\vs项目\FemtoMarch\src\assets\img\logo-w.svg               | XML                |         18 |          0 |          0 |         18 |
+| d:\vs项目\FemtoMarch\src\assets\js\vScrollReveal.js          | JavaScript         |         36 |          1 |          5 |         42 |
+| d:\vs项目\FemtoMarch\src\assets\vue.svg                      | XML                |          1 |          0 |          0 |          1 |
+| d:\vs项目\FemtoMarch\src\components\CompanyHistory.vue       | vue                |        148 |          4 |         18 |        170 |
+| d:\vs项目\FemtoMarch\src\components\GaoDeMap.vue             | vue                |        119 |          0 |         20 |        139 |
+| d:\vs项目\FemtoMarch\src\components\footer.vue               | vue                |         89 |          0 |          5 |         94 |
+| d:\vs项目\FemtoMarch\src\components\nav.vue                  | vue                |        262 |          4 |         18 |        284 |
+| d:\vs项目\FemtoMarch\src\components\swiperComponent.vue      | vue                |         45 |          0 |          3 |         48 |
+| d:\vs项目\FemtoMarch\src\main.js                             | JavaScript         |         12 |         10 |          4 |         26 |
+| d:\vs项目\FemtoMarch\src\router\index.js                     | JavaScript         |         64 |          0 |          3 |         67 |
+| d:\vs项目\FemtoMarch\src\views\career.vue                    | vue                |         49 |          0 |          4 |         53 |
+| d:\vs项目\FemtoMarch\src\views\company.vue                   | vue                |         46 |          0 |          3 |         49 |
+| d:\vs项目\FemtoMarch\src\views\contactUs.vue                 | vue                |         55 |          0 |          4 |         59 |
+| d:\vs项目\FemtoMarch\src\views\culture.vue                   | vue                |         66 |          0 |          6 |         72 |
+| d:\vs项目\FemtoMarch\src\views\customerService.vue           | vue                |         52 |          0 |          6 |         58 |
+| d:\vs项目\FemtoMarch\src\views\dynamicLoader.vue             | vue                |         19 |          0 |          4 |         23 |
+| d:\vs项目\FemtoMarch\src\views\index.vue                     | vue                |        127 |          1 |          6 |        134 |
+| d:\vs项目\FemtoMarch\src\views\newsCenter.vue                | vue                |         97 |          0 |          2 |         99 |
+| d:\vs项目\FemtoMarch\src\views\news\news1.vue                | vue                |          7 |          0 |          4 |         11 |
+| d:\vs项目\FemtoMarch\src\views\news\news2.vue                | vue                |          7 |          0 |          4 |         11 |
+| d:\vs项目\FemtoMarch\src\views\news\news3.vue                | vue                |          7 |          0 |          4 |         11 |
+| d:\vs项目\FemtoMarch\src\views\product.vue                   | vue                |         61 |          0 |          8 |         69 |
+| d:\vs项目\FemtoMarch\vite.config.js                          | JavaScript         |         13 |         11 |          1 |         25 |
+| d:\vs项目\FemtoMarch\vue.vonfig.js                           | JavaScript         |          4 |          0 |          0 |          4 |
+| Total                                                      |                    |      6,267 |        104 |        654 |      7,025 |
++------------------------------------------------------------+--------------------+------------+------------+------------+------------+

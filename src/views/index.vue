@@ -6,7 +6,7 @@
             </picture>
         </div>
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
-            <div class="row my-auto">
+            <div class="row my-auto" v-scroll-reveal>
                 <div class="col-lg-5">
                     <h1 class="mb-3">
                         全新OFAST-4000A
@@ -25,7 +25,7 @@
     <div class="briefContainer">
         <div class="briefContent">
             <div class="briefBox">
-                <div class="brief">
+                <div class="brief" v-scroll-reveal>
                     <div class="briefTextBox">
                         <div class="briefTitle">
                             我们是谁
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="learnMore">
-                    <div class="learnText">了解我们</div>
+                    <router-link to="/company" class="learnText">了解我们</router-link>
                     <div class="learnIcon"></div>
                 </div>
             </div>

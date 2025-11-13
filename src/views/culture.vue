@@ -21,7 +21,7 @@
 
     <div class="warp">
         <div class="goal">
-            <div class="goalText">
+            <div class="goalText" v-scroll-reveal>
                 <div class="txtTitle">
                     我们的使命
                 </div>
@@ -41,7 +41,7 @@
             <div class="wishPic">
                 <img src="../assets/img/wish.webp">
             </div>
-            <div class="wishText">
+            <div class="wishText" v-scroll-reveal>
                 <div class="txtTitle">
                     我们的愿景
                 </div>

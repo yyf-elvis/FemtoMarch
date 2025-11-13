@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^14.0.0",
     "amfe-flexible": "^2.2.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "body-scroll-lock-upgrade": "^1.1.0",

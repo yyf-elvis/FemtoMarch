@@ -7,7 +7,7 @@
         </div>
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
             <div class="row my-auto">
-                <div class="col-lg-5">
+                <div class="col-lg-5" v-scroll-reveal>
                     <h1 class="mb-3">
                         全新OFAST-4000A
                     </h1>
@@ -21,7 +21,7 @@
     </div>
 
 
-    <div class="productInfo">
+    <div class="productInfo" v-scroll-reveal>
         <p>治疗速度快，治疗时间相较于主流产品缩短<span class="emphasize">50% </span></p>
         <p>操作界面更智能，<span class="emphasize">中文界面</span>人机交互方便友好</p>
         <p>性价比高，使用和维护成本相较于进口产品下降<span class="emphasize">30%</span></p>
@@ -29,10 +29,10 @@
 
     <div class="advantageCotainer">
         <div class="advantageBox">
-            <div class="productPic">
+            <div class="productPic" v-scroll-reveal>
                 <img src="../assets/img/product.webp">
             </div>
-            <div class="advantageText">
+            <div class="advantageText" v-scroll-reveal>
                 <p class="title">主要优势</p>
                 <p><span class="iconCheck"></span>角膜地形图引导，眼球旋转补偿，精准测量角膜像差</p>
                 <p><span class="iconCheck"></span>个性化精准切削模型，矫正球差</p>

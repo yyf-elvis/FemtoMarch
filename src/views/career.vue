@@ -1,4 +1,4 @@
-<template> 
+<template>
     <div class="bannerContainer mb-9 mb-lg-0">
         <div class="background background-cover">
             <picture>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="warp">
-        <div class="slogan">
+        <div class="slogan" v-scroll-reveal>
             <p>秉承企业的文化、信任与价值观，我们致力为员工打造私人生活与充满活力的职场之间的理想平衡</p>
             <p>我们相信，让新人迅速融入并发挥所长至关重要</p>
             <p>因此，每位新成员都将获得量身定制的入职方案，把尚不熟悉的任务与流程逐一攻克</p>
@@ -33,8 +33,10 @@
             <div class="hireText">我们的招聘职位发布于以下平台</div>
             <div class="platform">
                 <div class="platformBox">
-                    <a href="https://www.zhipin.com/gongsi/job/0b8c17c346b1b9a71XN-3t69GVI~.html?ka=company-jobs" target="_blank"><img class="boss" src="../assets/img/boss.webp"></a>
-                    <a href="https://www.liepin.com/company/9183448/" target="_blank"><img class="liepin" src="../assets/img/liepin.webp"></a>
+                    <a href="https://www.zhipin.com/gongsi/job/0b8c17c346b1b9a71XN-3t69GVI~.html?ka=company-jobs"
+                        target="_blank"><img class="boss" src="../assets/img/boss.webp"></a>
+                    <a href="https://www.liepin.com/company/9183448/" target="_blank"><img class="liepin"
+                            src="../assets/img/liepin.webp"></a>
                 </div>
             </div>
         </div>

@@ -51,6 +51,13 @@
     .briefBox {
         width: 100%;
     }
+    .newsWarp{
+        margin-top: 0;
+    }
+    .my-swiper{
+        object-fit: cover !important;
+        height: 260px;
+    }
 }
 
 @media (max-width: 920px) {

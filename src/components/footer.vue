@@ -7,7 +7,7 @@
                         <div class="footerLeft flexC">
                             <div class="footerLeftCotainer">
                                 <div class="logo">
-                                    <img src="../assets/img/logo-w.svg">
+                                    <img src="../assets/img/logo-w.svg"/>
                                 </div>
                                 <div class="slogan">
                                     <p>
@@ -23,34 +23,31 @@
                                     <div class="footerList listTitle">
                                         关于飞眸
                                     </div>
-                                    <div class="footerList">
+                                    <router-link to="/company" class="footerList">
                                         公司介绍
-                                    </div>
-                                    <div class="footerList">
+                                    </router-link>
+                                    <router-link to="/career" class="footerList">
                                         加入我们
-                                    </div>
-                                    <div class="footerList">
+                                    </router-link>
+                                    <router-link to="/newsCenter" class="footerList">
                                         新闻及活动
-                                    </div>
+                                    </router-link>
                                 </div>
                                 <div class="footerListCotainer">
                                     <div class="footerList listTitle">
                                         产品展示
                                     </div>
-                                    <div class="footerList">
+                                    <router-link to="/product" class="footerList">
                                         OFAST-4000A
-                                    </div>
+                                    </router-link>
                                 </div>
                                 <div class="footerListCotainer">
                                     <div class="footerList listTitle">
                                         客户服务
                                     </div>
-                                    <div class="footerList">
+                                    <router-link to="/customerService" class="footerList">
                                         技术支持
-                                    </div>
-                                    <div class="footerList">
-                                        应用培训
-                                    </div>
+                                    </router-link>
                                 </div>
                                 <div class="footerListCotainer">
                                     <div class="footerList listTitle">
@@ -64,7 +61,7 @@
                                             <span class="iconfont">&#xe600;</span>
                                         </div>
                                         <div class="followList qrcode">
-                                            <img src="../assets/img/qrcode.png">
+                                            <LazyImage src="../assets/img/qrcode.png"/>
                                         </div>
                                     </div>
                                 </div>

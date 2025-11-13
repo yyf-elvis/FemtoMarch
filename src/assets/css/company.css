@@ -75,62 +75,35 @@
     font-size: 16px;
 }
 
-.markBar {
-    margin: 12px auto 0;
-}
-
-.warp {
+.briefWarp{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
     max-width: 1120px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 80px;
-    margin-bottom: 120px;
+    margin:80px auto;
+    padding: 0 32px;
+
+}
+.briefTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.briefTitle .title{
+    font-size: clamp(1.5rem, 3vw, 2.42rem);
+    font-weight: bold;
     text-align: center;
 }
-
-.warp .slogan {
-    font-size: 20px;
-    margin-bottom: 70px;
-    padding: 0 32px;
+.titlePic img{
+    width: 100%;
 }
-.slogan p{
-    margin-bottom: 10px;
+.briefText{
+    width: 70%;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.7;
 }
-.newsTitle .title {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.hireText {
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.platform {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-.platformBox {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-}
-
-.platform img {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 12px;
-}
-
-.boss:hover {
-    box-shadow: 0px 4px 20px 0px rgba(54, 194, 188, 0.25);
-    transition: .3s;
-}
-
-.liepin:hover {
-    box-shadow: 0px 4px 20px 0px rgba(214, 113, 30, 0.25);
-    transition: .3s;
-}
+.markBar {
+        display: none;
+    }

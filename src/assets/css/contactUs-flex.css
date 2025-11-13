@@ -60,6 +60,9 @@
     .warp .title {
         font-size: 28px;
     }
+    .contactWarp p{
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 920px) {

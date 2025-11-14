@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="learnMore">
-                    <router-link to="/company" class="learnText">了解我们</router-link>
+                    <router-link to="/therapeutic" class="learnText">了解我们</router-link>
                     <div class="learnIcon"></div>
                 </div>
             </div>

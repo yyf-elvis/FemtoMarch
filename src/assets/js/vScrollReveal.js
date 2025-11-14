@@ -9,26 +9,23 @@ export default {
 
     // 添加基础类（必须在Observer之前）
     el.classList.add('v-reveal')
-
+    let debounceTimer = null
     const observer = new IntersectionObserver(
-      (entries) => {
+    (entries) => {
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             el.classList.add('v-reveal-show')
-            
-            if (options.once) {
-              observer.unobserve(el)
-            }
+            if (options.once) observer.unobserve(el)
           } else if (!options.once) {
             el.classList.remove('v-reveal-show')
           }
         })
-      },
-      {
-        threshold: options.threshold,
-        rootMargin: options.rootMargin
-      }
-    )
+      }, 50) // 50ms防抖
+    },
+    { threshold: options.threshold, rootMargin: options.rootMargin }
+  )
 
     observer.observe(el)
     el._revealObserver = observer

@@ -36,6 +36,17 @@ html{
   width: 52px;
   height: 0;
 }
+.v-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: transform, opacity; /* 性能优化 */
+}
+
+.v-reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* 1366 屏再放大一档 */
 @media (max-width: 1440px) {

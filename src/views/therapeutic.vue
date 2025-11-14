@@ -9,11 +9,10 @@
             <div class="row my-auto">
                 <div class="col-lg-5" v-scroll-reveal>
                     <h1 class="mb-3">
-                        全新OFAST-4000A
+                        眼科飞秒激光治疗系统
                     </h1>
                     <div class="fs-lg">
-                        我们最新的眼科飞秒激光治疗系统，用于屈光手术治疗
-                        <br>速度快，操作界面智能，性价比更高。
+                        FemtoMarch OFAST-4000A：极速激光，智能交互，卓越价值，革新屈光手术新时代。
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@
                                     <div class="footerList listTitle">
                                         产品展示
                                     </div>
-                                    <router-link to="/product" class="footerList">
+                                    <router-link to="/therapeutic" class="footerList">
                                         OFAST-4000A
                                     </router-link>
                                 </div>
@@ -45,7 +45,7 @@
                                     <div class="footerList listTitle">
                                         客户服务
                                     </div>
-                                    <router-link to="/customerService" class="footerList">
+                                    <router-link to="/contactUs" class="footerList">
                                         技术支持
                                     </router-link>
                                 </div>
@@ -54,12 +54,12 @@
                                         关注我们
                                     </div>
                                     <div class="followUsCotainer">
-                                        <div class="followList">
+                                        <!-- <div class="followList">
                                             <span class="iconfont">&#xe601;</span>
                                         </div>
                                         <div class="followList">
                                             <span class="iconfont">&#xe600;</span>
-                                        </div>
+                                        </div> -->
                                         <div class="followList qrcode">
                                             <img src="../assets/img/qrcode.png"/>
                                         </div>

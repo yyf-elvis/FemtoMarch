@@ -144,5 +144,7 @@
         flex: 0 0 auto;
         width: 46.66667%;
     }
-
+    .background picture img{
+        height: 80vh !important;
+    }
 }

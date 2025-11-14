@@ -61,7 +61,7 @@
                                             <span class="iconfont">&#xe600;</span>
                                         </div>
                                         <div class="followList qrcode">
-                                            <LazyImage src="../assets/img/qrcode.png"/>
+                                            <img src="../assets/img/qrcode.png"/>
                                         </div>
                                     </div>
                                 </div>

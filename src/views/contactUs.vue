@@ -29,11 +29,11 @@
                 <div class="emailPhone">
                     <div class="email">
                         <p class="subTitle">邮箱：</p>
-                        <p>support@femtomarch.com</p>
+                        <p>sales@femtomarch.com</p>
                     </div>
                     <div class="phone">
                         <p class="subTitle">电话：</p>
-                        <p>156****888，029-81088888</p>
+                        <p>029-68880228</p>
                     </div>
                 </div>
                 <div class="addr">
@@ -41,7 +41,14 @@
                     <p>深圳市宝安区新安街道兴东社区67区留芳路6号庭威产业园3号楼5B</p>
                 </div>
                 <div class="map">
-                    <GaoDeMap />
+                    <ShenzhenMap />
+                </div>
+                <div class="addr xian">
+                    <p class="subTitle">联系地址：</p>
+                    <p>西安市高新区西部大道170号丰泽科技园1号楼1-3D#</p>
+                </div>
+                <div class="map">
+                    <XianMap />
                 </div>
             </div>
         </div>
@@ -50,7 +57,8 @@
 </template>
 
 <script setup>
-import GaoDeMap from '@/components/GaoDeMap.vue';
+import XianMap from '@/components/XianMap.vue';
+import ShenzhenMap from '@/components/ShenzhenMap.vue';
 </script>
 
 <style scoped>

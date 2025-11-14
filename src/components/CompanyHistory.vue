@@ -2,7 +2,7 @@
   <div class="history-container">
     <!-- 上方：Swiper轮播图 -->
     <div class="swiper-section">
-      <Swiper
+            <Swiper
         :modules="modules"
         :slides-per-view="1"
         :space-between="30"
@@ -14,6 +14,7 @@
       >
         <SwiperSlide v-for="(item, index) in historyList" :key="index">
           <div class="slide-content">
+            <!-- 关键修改：使用计算属性动态切换图片 -->
             <img :src="item.image" :alt="item.title" class="slide-image" />
             <div class="slide-info">
               <h2>{{ item.title }}</h2>
@@ -64,7 +65,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { A11y } from 'swiper/modules'
 import 'swiper/css'
@@ -73,20 +74,43 @@ import 'swiper/css/navigation'
 // Swiper模块配置
 const modules = [A11y]
 
-// 企业历程数据
-const getImageUrl = (index) => {
-  return new URL(`../assets/img/timeline/slide${index}.png`, import.meta.url).href
+// 屏幕宽度响应式状态
+const isMobile = ref(window.innerWidth < 768)
+
+// 监听窗口大小变化
+const updateScreenWidth = () => {
+  isMobile.value = window.innerWidth < 768
 }
 
-// 企业历程数据
-const historyList = ref([
-  { year: '2018', title: '公司成立', description: '在科技创新之都深圳正式成立，开启创业征程', image: getImageUrl(1) },
-  { year: '2019', title: '产品发布', description: '推出首款产品，获得市场认可和用户好评', image: getImageUrl(2) },
-  { year: '2020', title: 'A轮融资', description: '完成数千万元A轮融资，加速产品迭代', image: getImageUrl(3) },
-  { year: '2021', title: '团队扩张', description: '团队规模突破100人，建立完整研发体系', image: getImageUrl(4) },
-  { year: '2022', title: '业务拓展', description: '业务覆盖全国20+城市，服务客户超5000家', image: getImageUrl(5) },
-  { year: '2023', title: '行业领先', description: '成为行业头部企业，持续引领技术创新', image: getImageUrl(6) },
-  { year: '2024', title: '未来展望', description: '向全球市场迈进，打造世界级产品', image: getImageUrl(7) }
+// 修改图片获取函数：根据屏幕宽度返回对应图片
+const getImageUrl = (index) => {
+  const basePath = '../assets/img/timeline'
+  const imageName = isMobile.value 
+    ? `slide${index}-mobile.webp`  // 移动端图片，如 slide1-mobile.webp
+    : `slide${index}.webp`         // PC端图片
+  return new URL(`${basePath}/${imageName}`, import.meta.url).href
+}
+
+// 企业历程数据（使用计算属性确保响应式更新）
+const historyList = computed(() => [
+  { 
+    year: '2022', 
+    title: '公司成立', 
+    description: '江苏飞尨激光科技有限公司成立微光参股（早期孵化）', 
+    image: getImageUrl(1) 
+  },
+  { 
+    year: '2024', 
+    title: '公司更名', 
+    description: '“飞尨激光”更名为“飞眸医疗”', 
+    image: getImageUrl(2) 
+  },
+  { 
+    year: '2025', 
+    title: '取得型检报告', 
+    description: '取得型检报告', 
+    image: getImageUrl(3) 
+  },
 ])
 
 // 引用声明
@@ -153,15 +177,16 @@ const handleResize = () => {
 // 生命周期-挂载
 onMounted(() => {
   nextTick(() => {
-    // scrollToActiveTimeline()
-    updateTimelineLineWidth() // 初始计算
+    updateTimelineLineWidth()
     window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', updateScreenWidth) // 添加屏幕宽度监听
   })
 })
 
 // 生命周期-卸载
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
+  window.removeEventListener('resize', updateScreenWidth) // 移除监听
 })
 </script>
 

@@ -155,7 +155,7 @@
     display: block;
     pointer-events: none;
     opacity: 0;
-    min-width: 126px;
+    min-width: 136px;
     color: var(--text);
     text-align: center;
     list-style: none;

@@ -16,46 +16,53 @@
 					</div>
 					<div class="menuList whinherit flexC"
 						:class="{ navActive: ['about', 'company', 'culture', 'career'].includes(activeMenu) }">
-						<div class="menu" @click="setActiveMenu('about')">
+						<div class="menu">
 							关于飞眸
 						</div>
 						<!-- 下拉菜单 -->
 						<ul class="dropdown-menu">
 							<router-link to="/company" class="dropdown-item"
-								:class="{ active: activeMenu === 'company' }"
-								@click="handleSubMenuClick('company')">
-							公司简介
+								:class="{ active: activeMenu === 'company' }" @click="handleSubMenuClick('company')">
+								公司简介
 							</router-link>
 							<router-link to="/culture" class="dropdown-item"
-								:class="{ active: activeMenu === 'culture' }"
-								@click="handleSubMenuClick('culture')">
-							企业文化
-							</router-link>
-							<router-link to="/career" class="dropdown-item"
-								:class="{ active: activeMenu === 'career' }"
-								@click="handleSubMenuClick('career')">
-							在飞眸工作
+								:class="{ active: activeMenu === 'culture' }" @click="handleSubMenuClick('culture')">
+								企业文化
 							</router-link>
 						</ul>
 					</div>
-					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'products' }">
-						<router-link to="/product" class="menu" @click="setActiveMenu('products')">
+					<div class="menuList whinherit flexC"
+						:class="{ navActive: ['product', 'culture'].includes(activeMenu) }">
+						<div class="menu">
 							产品中心
-						</router-link>
+						</div>
+						<!-- 下拉菜单 -->
+						<ul class="dropdown-menu">
+							<router-link to="/therapeutic" class="dropdown-item"
+								:class="{ active: activeMenu === 'therapeutic' }"
+								@click="handleSubMenuClick('therapeutic')">
+								眼科治疗器械
+							</router-link>
+							<router-link to="/diagnostic" class="dropdown-item"
+								:class="{ active: activeMenu === 'diagnostic' }"
+								@click="handleSubMenuClick('diagnostic')">
+								眼科诊断器械
+							</router-link>
+						</ul>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'news' }">
 						<router-link to="/newsCenter" class="menu" @click="setActiveMenu('news')">
 							飞眸动态
 						</router-link>
 					</div>
-					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'service' }">
-						<router-link to="/customerService" class="menu" @click="setActiveMenu('service')">
-							客户服务
-						</router-link>
-					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'contact' }">
 						<router-link to="/contactUs" class="menu" @click="setActiveMenu('contact')">
 							联系我们
+						</router-link>
+					</div>
+					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'career' }">
+						<router-link to="/career" class="menu" @click="setActiveMenu('career')">
+							在飞眸工作
 						</router-link>
 					</div>
 				</div>
@@ -84,11 +91,11 @@
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<a class="nav-link dropdown-toggle"
-							:class="{ show: isDropdownOpen, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
-							@click="toggleDropdown($event)">
+							:class="{ show: dropdownOpenStates.about, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
+							@click="toggleDropdown('about', $event)">
 							关于飞眸
 						</a>
-						<ul class="mobile-dropdownMenu" :class="{ show: isDropdownOpen }">
+						<ul class="mobile-dropdownMenu" :class="{ show: dropdownOpenStates.about }">
 							<router-link to="/company">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
 									@click="handleSubMenuClick('company')">企业简介</li>
@@ -97,17 +104,24 @@
 								<li class="dropdown-item" :class="{ active: activeMenu === 'culture' }"
 									@click="handleSubMenuClick('culture')">企业文化</li>
 							</router-link>
-							<router-link to="/career">
-								<li class="dropdown-item" :class="{ active: activeMenu === 'career' }"
-									@click="handleSubMenuClick('career')">在飞眸工作</li>
-							</router-link>
 						</ul>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
-						<router-link to="/product" class="nav-link" :class="{ active: activeMenu === 'products' }"
-							@click="closeModal(); setActiveMenu('products')">
+						<a class="nav-link dropdown-toggle"
+							:class="{ show: dropdownOpenStates.product, active: ['product', 'therapeutic', 'diagnostic'].includes(activeMenu) }"
+							@click="toggleDropdown('product', $event)">
 							产品中心
-						</router-link>
+						</a>
+						<ul class="mobile-dropdownMenu" :class="{ show: dropdownOpenStates.product }">
+							<router-link to="/therapeutic">
+								<li class="dropdown-item" :class="{ active: activeMenu === 'therapeutic' }"
+									@click="handleSubMenuClick('therapeutic')">眼科治疗器械</li>
+							</router-link>
+							<router-link to="/diagnostic">
+								<li class="dropdown-item" :class="{ active: activeMenu === 'diagnostic' }"
+									@click="handleSubMenuClick('diagnostic')">眼科诊断器械</li>
+							</router-link>
+						</ul>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/newsCenter" class="nav-link" :class="{ active: activeMenu === 'news' }"
@@ -116,16 +130,16 @@
 						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
-						<router-link to="/customerService" class="nav-link"
-							:class="{ active: activeMenu === 'service' }"
-							@click="closeModal(); setActiveMenu('service')">
-							客户服务
-						</router-link>
-					</li>
-					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/contactUs" class="nav-link" :class="{ active: activeMenu === 'contact' }"
 							@click="closeModal(); setActiveMenu('contact')">
 							联系我们
+						</router-link>
+					</li>
+					<li class="nav-item mobile-dropdown dropdown-hover">
+						<router-link to="/career" class="nav-link"
+							:class="{ active: activeMenu === 'career' }"
+							@click="closeModal(); setActiveMenu('career')">
+							在飞眸工作
 						</router-link>
 					</li>
 				</ul>
@@ -141,7 +155,10 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 const isOpen = ref(false)
 const modalRef = ref()
-const isDropdownOpen = ref(false)
+const dropdownOpenStates = ref({
+	about: false,
+	product: false
+})
 const navigation = ref()
 const isNavHidden = ref(false)
 const route = useRoute()
@@ -151,29 +168,31 @@ const activeMenu = ref('home')
 
 // 定义路径与菜单的映射关系
 const pathToMenuMap = {
-  '/': 'home',
-  '/company': 'about',
-  '/culture': 'about',
-  '/career': 'about',
-  '/product': 'products',
-  '/newsCenter': 'news',
-  '/customerService': 'service',
-  '/contactUs': 'contact',
+	'/': 'home',
+	'/company': 'about',
+	'/culture': 'about',
+	'/career': 'about',
+	'/product': 'product',
+	'/therapeutic': 'product',
+	'/diagnostic': 'product',
+	'/newsCenter': 'news',
+	'/customerService': 'service',
+	'/contactUs': 'contact',
 }
 
 watch(() => route.path, (newPath) => {
-  // 先精确匹配
-  if (pathToMenuMap[newPath]) {
-    activeMenu.value = pathToMenuMap[newPath]
-  } 
-  // 再处理动态路径（如新闻详情）
-  else if (newPath.startsWith('/news/')) {
-    activeMenu.value = 'news'
-  }
-  // 兜底处理
-  else {
-    activeMenu.value = 'home'
-  }
+	// 先精确匹配
+	if (pathToMenuMap[newPath]) {
+		activeMenu.value = pathToMenuMap[newPath]
+	}
+	// 再处理动态路径（如新闻详情）
+	else if (newPath.startsWith('/news/')) {
+		activeMenu.value = 'news'
+	}
+	// 兜底处理
+	else {
+		activeMenu.value = 'home'
+	}
 }, { immediate: true })
 
 const setActiveMenu = (menu) => {
@@ -193,13 +212,16 @@ const handleSubMenuClick = (menu) => {
 // 移动端关闭弹窗
 const closeModal = () => {
 	isOpen.value = false
-	isDropdownOpen.value = false
+	dropdownOpenStates.value = {
+		about: false,
+		product: false
+	}
 }
 
 // 下拉菜单切换
-const toggleDropdown = (event) => {
-	event.preventDefault()
-	isDropdownOpen.value = !isDropdownOpen.value
+const toggleDropdown = (menuKey, event) => {
+	if (event) event.preventDefault()
+	dropdownOpenStates.value[menuKey] = !dropdownOpenStates.value[menuKey]
 }
 
 // 滚动相关
@@ -251,7 +273,11 @@ onUnmounted(() => {
 const toggleModal = () => {
 	isOpen.value = !isOpen.value
 	if (!isOpen.value) {
-		isDropdownOpen.value = false
+		// 关闭时重置所有下拉状态
+		dropdownOpenStates.value = {
+			about: false,
+			product: false
+		}
 	}
 }
 
@@ -270,10 +296,14 @@ watch(isOpen, (val) => {
 		document.documentElement.style.overflow = ''
 		document.body.style.overflow = ''
 		enableBodyScroll(document.body)
-		isDropdownOpen.value = false
+		// 关闭时重置所有下拉状态
+		dropdownOpenStates.value = {
+			about: false,
+			product: false
+		}
 		setTimeout(() => {
-      enableBodyScroll(document.body)
-    }, 300)
+			enableBodyScroll(document.body)
+		}, 300)
 	}
 })
 </script>

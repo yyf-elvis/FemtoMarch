@@ -16,10 +16,10 @@ const loading = ref(true);
 const MAP_KEY = 'e07ffdf58c8e8672037bef0d6cae7d4a';
 
 const mapData = {
-  center: [108.810268, 34.170355],
+  center: [108.810537,34.17072],
   zoom: 16,
   marker: {
-    position: [108.810268, 34.170355],
+    position: [108.810537,34.17072],
     name: "深圳市飞眸医疗器械技术有限公司",
     desc: "西安分公司"
   }

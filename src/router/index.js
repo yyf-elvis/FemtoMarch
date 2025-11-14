@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import index from '../views/index.vue';
-import product from '../views/product.vue';
+import therapeutic from '../views/therapeutic.vue';
 import newsCenter from '../views/newsCenter.vue';
 import customerService from '../views/customerService.vue';
 import contactUs from '../views/contactUs.vue';
@@ -15,9 +15,9 @@ const routes = [
     component: index
   },
   {
-    path: '/product',
-    name: 'product',
-    component: product
+    path: '/therapeutic',
+    name: 'therapeutic',
+    component: therapeutic
   },
   {
     path: '/newsCenter',

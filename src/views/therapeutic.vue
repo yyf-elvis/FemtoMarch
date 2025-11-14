@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="warp">
+    <!-- <div class="warp">
         <div class="manualWarp">
             <div class="newsTitle">
                 <div class="title">产品手册</div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script setup>

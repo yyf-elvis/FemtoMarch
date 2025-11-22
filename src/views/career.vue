@@ -32,7 +32,7 @@
             </div>
             <div class="hireText">
                 我们的招聘职位发布于以下平台<br>
-                也欢迎通过邮箱投递简历：tengyaling@femtomarch.com  
+                也欢迎通过邮箱投递简历：hr@femtomarch.com  
             </div>
             <div class="platform">
                 <div class="platformBox">

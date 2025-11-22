@@ -51,8 +51,8 @@ const routes = [
   },
   {
     path: '/news/:id',
-    name: 'test',
-    component: () => import('../views/dynamicLoader.vue')  // 动态加载器
+    name: 'news',
+    component: () => import('../views/NewsDetailRouter.vue')  // 动态加载器
   }
 ];
 

@@ -20,7 +20,7 @@
     </div>
     <div class="newsWarp">
         <div class="newsContainer">
-            <router-link v-for="news in newsList" :key="news.id" :to="{ path: `/news/${news.id}` }" class="newsItem">
+            <router-link v-for="news in sortedNewsList" :key="news.id" :to="{ path: `/news/${news.id}` }" class="newsItem">
                 <div class="newsBox">
                     <div class="newsPic">
                         <figure :style="{ backgroundImage: `url(${news.imageUrl})` }"></figure>
@@ -37,60 +37,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 // 引入新闻图片
-import slide1 from '@/assets/img/slide1.png'
+import newsCover1 from '@/assets/img/news/cover/20250801.webp'
+import newsCover2 from '@/assets/img/news/cover/20250930.webp'
+
 const newsList = ref([
-  {
-    id: 1,  // 添加唯一ID
-    date: '2025.12.23',
-    title: '飞眸医疗，入驻丰泽科技园',
-    imageUrl: slide1
-  },
-  {
-    id: 2,
-    date: '2025.12.22',
-    title: '科技创新引领未来发展',
-    imageUrl: slide1
-  },
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  }
-  ,
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  },
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  },
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  },
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  },
-  {
-    id: 3,
-    date: '2025.12.21',
-    title: '智慧医疗新里程碑',
-    imageUrl: slide1
-  }
+    {
+        id: 1,  // 添加唯一ID
+        date: '2025.8.1',
+        title: '【飞眸医疗】飞秒激光变革眼科术式',
+        imageUrl: newsCover1
+    },
+    {
+        id: 2,
+        date: '2025.9.30',
+        title: '热烈祝贺！飞眸医疗喜获粤港澳大湾区创业大赛全国总决赛铜奖！',
+        imageUrl: newsCover2
+    }
 ])
+
+const sortedNewsList = computed(() => {
+    return [...newsList.value].sort((a, b) => b.id - a.id) // ID降序排列
+})
 </script>
 
 <style scoped>

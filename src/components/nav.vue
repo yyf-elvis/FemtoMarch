@@ -4,70 +4,70 @@
 			<!-- PC端 -->
 			<div class="logoBox flexC">
 				<router-link to="/" class="logoBox-inner whinherit" @click="setActiveMenu('home')">
-					<img src="../assets/img/logo.webp">
+					<img :src="logoSrc" alt="Logo">
 				</router-link>
 			</div>
 			<div class="menuCotainer flexC">
 				<div class="menuListCotainer flexC">
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'home' }">
 						<router-link to="/" class="menu" @click="setActiveMenu('home')">
-							首页
+							{{ t('nav.home') }}
 						</router-link>
 					</div>
 					<div class="menuList whinherit flexC"
-						:class="{ navActive: ['about', 'company', 'culture', 'career'].includes(activeMenu) }">
+						:class="{ navActive: ['about', 'company', 'culture'].includes(activeMenu) }">
 						<div class="menu">
-							关于飞眸
+							{{ t('nav.about') }}
 						</div>
 						<!-- 下拉菜单 -->
 						<ul class="dropdown-menu">
 							<router-link to="/company" class="dropdown-item"
 								:class="{ active: activeMenu === 'company' }" @click="handleSubMenuClick('company')">
-								公司简介
+								{{ t('nav.company') }}
 							</router-link>
 							<router-link to="/culture" class="dropdown-item"
 								:class="{ active: activeMenu === 'culture' }" @click="handleSubMenuClick('culture')">
-								企业文化
+								{{ t('nav.culture') }}
 							</router-link>
 						</ul>
 					</div>
 					<div class="menuList whinherit flexC"
-						:class="{ navActive: ['product', 'culture'].includes(activeMenu) }">
+						:class="{ navActive: ['product', 'therapeutic', 'diagnostic'].includes(activeMenu) }">
 						<div class="menu">
-							产品中心
+							{{ t('nav.products') }}
 						</div>
 						<!-- 下拉菜单 -->
 						<ul class="dropdown-menu">
 							<router-link to="/therapeutic" class="dropdown-item"
 								:class="{ active: activeMenu === 'therapeutic' }"
 								@click="handleSubMenuClick('therapeutic')">
-								眼科治疗器械
+								{{ t('nav.therapeutic') }}
 							</router-link>
 							<router-link to="/diagnostic" class="dropdown-item"
 								:class="{ active: activeMenu === 'diagnostic' }"
 								@click="handleSubMenuClick('diagnostic')">
-								眼科诊断器械
+								{{ t('nav.diagnostic') }}
 							</router-link>
 						</ul>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'news' }">
 						<router-link to="/newsCenter" class="menu" @click="setActiveMenu('news')">
-							飞眸动态
+							{{ t('nav.news') }}
 						</router-link>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'contact' }">
 						<router-link to="/contactUs" class="menu" @click="setActiveMenu('contact')">
-							联系我们
+							{{ t('nav.contact') }}
 						</router-link>
 					</div>
 					<div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'career' }">
 						<router-link to="/career" class="menu" @click="setActiveMenu('career')">
-							在飞眸工作
+							{{ t('nav.career') }}
 						</router-link>
 					</div>
 				</div>
-				<div class="language">
-					<span class="en">English</span>
+				<div class="language" @click="toggleLanguage">
+					<span class="en">{{ currentLangLabel }}</span>
 				</div>
 			</div>
 			<!-- 移动端 -->
@@ -86,23 +86,23 @@
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/" class="nav-link" :class="{ active: activeMenu === 'home' }"
 							@click="closeModal(); setActiveMenu('home')">
-							首页
+							{{ t('nav.home') }}
 						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<a class="nav-link dropdown-toggle"
-							:class="{ show: dropdownOpenStates.about, active: ['about', 'company', 'culture', 'career'].includes(activeMenu) }"
+							:class="{ show: dropdownOpenStates.about, active: ['about', 'company', 'culture'].includes(activeMenu) }"
 							@click="toggleDropdown('about', $event)">
-							关于飞眸
+							{{ t('nav.about') }}
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: dropdownOpenStates.about }">
 							<router-link to="/company">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'company' }"
-									@click="handleSubMenuClick('company')">企业简介</li>
+									@click="handleSubMenuClick('company')">{{ t('nav.company') }}</li>
 							</router-link>
 							<router-link to="/culture">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'culture' }"
-									@click="handleSubMenuClick('culture')">企业文化</li>
+									@click="handleSubMenuClick('culture')">{{ t('nav.culture') }}</li>
 							</router-link>
 						</ul>
 					</li>
@@ -110,37 +110,40 @@
 						<a class="nav-link dropdown-toggle"
 							:class="{ show: dropdownOpenStates.product, active: ['product', 'therapeutic', 'diagnostic'].includes(activeMenu) }"
 							@click="toggleDropdown('product', $event)">
-							产品中心
+							{{ t('nav.products') }}
 						</a>
 						<ul class="mobile-dropdownMenu" :class="{ show: dropdownOpenStates.product }">
 							<router-link to="/therapeutic">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'therapeutic' }"
-									@click="handleSubMenuClick('therapeutic')">眼科治疗器械</li>
+									@click="handleSubMenuClick('therapeutic')">{{ t('nav.therapeutic') }}</li>
 							</router-link>
 							<router-link to="/diagnostic">
 								<li class="dropdown-item" :class="{ active: activeMenu === 'diagnostic' }"
-									@click="handleSubMenuClick('diagnostic')">眼科诊断器械</li>
+									@click="handleSubMenuClick('diagnostic')">{{ t('nav.diagnostic') }}</li>
 							</router-link>
 						</ul>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/newsCenter" class="nav-link" :class="{ active: activeMenu === 'news' }"
 							@click="closeModal(); setActiveMenu('news')">
-							飞眸动态
+							{{ t('nav.news') }}
 						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/contactUs" class="nav-link" :class="{ active: activeMenu === 'contact' }"
 							@click="closeModal(); setActiveMenu('contact')">
-							联系我们
+							{{ t('nav.contact') }}
 						</router-link>
 					</li>
 					<li class="nav-item mobile-dropdown dropdown-hover">
 						<router-link to="/career" class="nav-link"
 							:class="{ active: activeMenu === 'career' }"
 							@click="closeModal(); setActiveMenu('career')">
-							在飞眸工作
+							{{ t('nav.career') }}
 						</router-link>
+					</li>
+					<li class="nav-item mobile-lang-switch">
+						<a class="nav-link" @click="toggleLanguage">{{ currentLangLabel }}</a>
 					</li>
 				</ul>
 			</div>
@@ -149,9 +152,16 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { useI18n } from 'vue-i18n'
+
+const { t, locale, messages } = useI18n()
+
+const logoSrc = computed(() => {
+  return t('nav.logo')  // 直接返回路径
+})
 
 const isOpen = ref(false)
 const modalRef = ref()
@@ -166,18 +176,32 @@ const router = useRouter()
 
 const activeMenu = ref('home')
 
+// 计算当前语言标签
+const currentLangLabel = computed(() => {
+	return locale.value === 'en' ? '中文' : 'English'
+})
+
+// 切换语言
+const toggleLanguage = () => {
+	const newLocale = locale.value === 'en' ? 'zh-CN' : 'en'
+	locale.value = newLocale
+	localStorage.setItem('language', newLocale)
+	// 刷新页面确保所有文本更新
+	window.location.reload()
+}
+
 // 定义路径与菜单的映射关系
 const pathToMenuMap = {
 	'/': 'home',
 	'/company': 'about',
 	'/culture': 'about',
-	'/career': 'about',
 	'/product': 'product',
 	'/therapeutic': 'product',
 	'/diagnostic': 'product',
 	'/newsCenter': 'news',
 	'/customerService': 'service',
 	'/contactUs': 'contact',
+	'/career': 'career'
 }
 
 watch(() => route.path, (newPath) => {
@@ -311,4 +335,11 @@ watch(isOpen, (val) => {
 <style scoped>
 @import url("../assets/css/nav.css");
 @import url("../assets/css/nav-flex.css");
+
+.mobile-lang-switch {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding-top: 10px;
+	margin-top: 10px;
+	cursor: pointer;
+}
 </style>

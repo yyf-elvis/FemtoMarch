@@ -92,10 +92,9 @@
     font-size: 20px;
     margin-bottom: 70px;
     padding: 0 32px;
+    line-height: 40px;
 }
-.slogan p{
-    margin-bottom: 10px;
-}
+
 .newsTitle .title {
     font-size: 36px;
     font-weight: bold;

@@ -2,16 +2,17 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import i18n from './locales/i18n.js'  // 新增：导入 i18n 实例
 import './assets/css/reset.css'
 import './assets/css/global.css'
 import './assets/css/iconfont.css'
 import './assets/css/vScrollReveal.css'
 import vScrollReveal from './assets/js/vScrollReveal'
 
-
 const app = createApp(App)
 
 app.directive('scroll-reveal', vScrollReveal)
+app.use(i18n)  // 新增：注册 i18n
 app.use(router)
 app.mount('#app')
 

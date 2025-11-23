@@ -7,61 +7,38 @@
                         <div class="footerLeft flexC">
                             <div class="footerLeftCotainer">
                                 <div class="logo">
-                                    <img src="../assets/img/logo-w.svg"/>
+                                    <img :src="logoSrc" alt="Logo">
                                 </div>
                                 <div class="slogan">
-                                    <p>
-                                        飞眸医疗，中国精度<br>
-                                        眼科医生的第二把柳叶刀
-                                    </p>
+                                    <p v-html="t('footer.slogan')"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="footerRight flexC">
                             <div class="footerRightBox">
                                 <div class="footerListCotainer">
-                                    <div class="footerList listTitle">
-                                        关于飞眸
-                                    </div>
-                                    <router-link to="/company" class="footerList">
-                                        公司介绍
-                                    </router-link>
-                                    <router-link to="/career" class="footerList">
-                                        加入我们
-                                    </router-link>
-                                    <router-link to="/newsCenter" class="footerList">
-                                        新闻及活动
-                                    </router-link>
+                                    <div class="footerList listTitle">{{ t('footer.aboutTitle') }}</div>
+                                    <router-link to="/company" class="footerList">{{ t('footer.company')
+                                    }}</router-link>
+                                    <router-link to="/career" class="footerList">{{ t('footer.career') }}</router-link>
+                                    <router-link to="/newsCenter" class="footerList">{{ t('footer.news')
+                                    }}</router-link>
                                 </div>
                                 <div class="footerListCotainer">
-                                    <div class="footerList listTitle">
-                                        产品展示
-                                    </div>
-                                    <router-link to="/therapeutic" class="footerList">
-                                        OFAST-4000A
-                                    </router-link>
+                                    <div class="footerList listTitle">{{ t('footer.productTitle') }}</div>
+                                    <router-link to="/therapeutic" class="footerList">{{ t('footer.productName')
+                                    }}</router-link>
                                 </div>
                                 <div class="footerListCotainer">
-                                    <div class="footerList listTitle">
-                                        客户服务
-                                    </div>
-                                    <router-link to="/contactUs" class="footerList">
-                                        技术支持
-                                    </router-link>
+                                    <div class="footerList listTitle">{{ t('footer.serviceTitle') }}</div>
+                                    <router-link to="/contactUs" class="footerList">{{ t('footer.support')
+                                    }}</router-link>
                                 </div>
                                 <div class="footerListCotainer">
-                                    <div class="footerList listTitle">
-                                        关注我们
-                                    </div>
+                                    <div class="footerList listTitle">{{ t('footer.followTitle') }}</div>
                                     <div class="followUsCotainer">
-                                        <!-- <div class="followList">
-                                            <span class="iconfont">&#xe601;</span>
-                                        </div>
-                                        <div class="followList">
-                                            <span class="iconfont">&#xe600;</span>
-                                        </div> -->
                                         <div class="followList qrcode">
-                                            <img src="../assets/img/qrcode.png"/>
+                                            <img src="../assets/img/qrcode.png" alt="QR Code" />
                                         </div>
                                     </div>
                                 </div>
@@ -69,25 +46,45 @@
                         </div>
                     </div>
                 </div>
-            <div class="divider">
-                <div class="line"></div>
-            </div> 
-            <div class="ICPInfo">
-                Copyright © 2025 深圳市飞眸医疗器械技术有限公司&nbsp;&nbsp;&nbsp;
-                陕ICP备xxxxxxxx号&nbsp;&nbsp;&nbsp;
-                陕公网安备 xxxxxxxxxxxxxx号
-            </div>   
+                <div class="divider">
+                    <div class="line"></div>
+                </div>
+                <div class="ICPInfo">
+                    {{ t('footer.copyright', { company: t('footer.companyName') }) }}&nbsp;&nbsp;&nbsp;
+                    {{ t('footer.icp') }}&nbsp;&nbsp;&nbsp;
+                    {{ t('footer.police') }}
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'  // ← 确保引入
 
+const { t, locale } = useI18n()
+
+// Logo 路径
+const logoSrc = computed(() => {
+  return t('footer.logo')  // 直接返回路径
+})
+
+// 二维码路径
+const qrcodeSrc = computed(() => {
+    const qrcodeName = locale.value === 'en' ? 'qrcode-en.png' : 'qrcode-zh.png'
+    return `/img/${qrcodeName}`
+})
+
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    console.log('Footer - 当前语言:', locale.value)
+    console.log('Footer - sloganLine1:', t('footer.sloganLine1'))
+})
 </script>
 
 <style scoped>
 @import url("../assets/css/footer.css");
 @import url("../assets/css/footer-flex.css");
-
 </style>

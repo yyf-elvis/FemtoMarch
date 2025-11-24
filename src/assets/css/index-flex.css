@@ -58,6 +58,9 @@
         object-fit: cover !important;
         height: 260px;
     }
+    .english-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 @media (max-width: 920px) {
@@ -67,6 +70,9 @@
         margin: auto;
         margin-bottom: 16px;
     }
+    .english-title {
+    font-size: 1.75rem !important;
+  }
 }
 
 @media (max-width:1200px) {

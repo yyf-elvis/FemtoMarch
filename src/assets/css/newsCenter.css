@@ -3,7 +3,9 @@
     top: 0;
     overflow: hidden;
 }
-
+.english-title {
+  font-size: 2rem !important; /* 英文状态下减小字体 */
+}
 .mb-9 {
     margin-bottom: 72px;
 }

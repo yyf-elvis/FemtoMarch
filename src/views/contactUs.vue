@@ -9,10 +9,10 @@
             <div class="row my-auto">
                 <div class="col-lg-5">
                     <h1 class="mb-3">
-                        联系我们
+                        {{ $t('contactUs.banner.title') }}
                     </h1>
                     <div class="fs-lg">
-                        我们很乐意听到你的消息。如对我们的产品和服务有任何疑问，请与我们联系。
+                        {{ $t('contactUs.banner.desc') }}
                     </div>
                 </div>
             </div>
@@ -22,30 +22,33 @@
     <div class="warp">
         <div class="support">
             <div class="newsTitle">
-                <div class="title">联系方式</div>
+                <div class="title">{{ $t('contactUs.contact.title') }}</div>
                 <div class="markBar"></div>
             </div>
             <div class="contactWarp">
                 <div class="emailPhone">
                     <div class="email">
-                        <p class="subTitle">邮箱：</p>
+                        <p class="subTitle">{{ $t('contactUs.contact.emailLabel') }}</p>
                         <p>sales@femtomarch.com</p>
                     </div>
                     <div class="phone">
-                        <p class="subTitle">电话：</p>
-                        <p>029-68880228</p>
+                        <p class="subTitle">{{ $t('contactUs.contact.phoneLabel') }}</p>
+                        <!-- ✅ 动态显示电话号码 -->
+                        <p>{{ $t('contactUs.contact.phoneNumber') }}</p>
                     </div>
                 </div>
+                <!-- 深圳地址 -->
                 <div class="addr">
-                    <p class="subTitle">联系地址：</p>
-                    <p>深圳市宝安区新安街道兴东社区67区留芳路6号庭威产业园3号楼5B</p>
+                    <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
+                    <p>{{ $t('contactUs.contact.shenzhenAddress') }}</p>
                 </div>
                 <div class="map">
                     <ShenzhenMap />
                 </div>
+                <!-- 西安地址 -->
                 <div class="addr xian">
-                    <p class="subTitle">联系地址：</p>
-                    <p>西安市高新区西部大道170号丰泽科技园1号楼1-3D#</p>
+                    <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
+                    <p>{{ $t('contactUs.contact.xianAddress') }}</p>
                 </div>
                 <div class="map">
                     <XianMap />
@@ -53,12 +56,14 @@
             </div>
         </div>
     </div>
-    
 </template>
 
 <script setup>
 import XianMap from '@/components/XianMap.vue';
 import ShenzhenMap from '@/components/ShenzhenMap.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n({ useScope: 'global' });
 </script>
 
 <style scoped>

@@ -56,6 +56,9 @@
     .warp .title{
         font-size: 28px;
     }
+    .english-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 @media (max-width: 920px) {
@@ -77,6 +80,9 @@
     .productInfo{
         font-size: 18px;
     }
+    .english-title {
+    font-size: 1.75rem !important;
+  }
 }
 
 @media (max-width:1200px) {

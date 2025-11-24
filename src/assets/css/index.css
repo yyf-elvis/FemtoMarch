@@ -206,10 +206,13 @@
     line-height: 1.5;
     word-break: break-word;
 }
-
+.english-title {
+  font-size: 2rem !important;
+}
 .briefText {
     padding: 4px;
     color: var(--textGray);
+    font-size: var(--normalFont);
     text-align: justify;
     text-align-last: center;
 }

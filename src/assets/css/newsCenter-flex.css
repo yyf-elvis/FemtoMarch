@@ -47,6 +47,9 @@
     .fs-lg {
         font-size: 18px !important;
     }
+    .english-title {
+    font-size: 1.5rem !important; /* 移动端 */
+  }
 }
 
 @media (max-width: 920px) {
@@ -55,6 +58,9 @@
         max-width: 720px;
         margin: auto;
     }
+    .english-title {
+    font-size: 1.75rem !important; /* 平板端 */
+  }
 }
 
 @media (max-width:1200px) {

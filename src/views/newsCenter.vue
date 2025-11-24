@@ -8,11 +8,12 @@
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
             <div class="row my-auto">
                 <div class="col-lg-5">
-                    <h1 class="mb-3">
-                        飞眸动态
+                    <!-- ✅ 英文状态下字体变小 -->
+                    <h1 class="mb-3" :class="{ 'english-title': isEnglish }">
+                        {{ $t('newsCenter.banner.title') }}
                     </h1>
                     <div class="fs-lg">
-                        飞眸官方发布的最新动态或消息为您提供关于飞眸的第一手资讯
+                        {{ $t('newsCenter.banner.desc') }}
                     </div>
                 </div>
             </div>
@@ -20,7 +21,8 @@
     </div>
     <div class="newsWarp">
         <div class="newsContainer">
-            <router-link v-for="news in sortedNewsList" :key="news.id" :to="{ path: `/news/${news.id}` }" class="newsItem">
+            <!-- ✅ 添加 v-if 防止空数组渲染 -->
+            <router-link v-for="news in sortedNewsList" :key="news.id" :to="{ path: `/news/${news.id}` }" class="newsItem" v-if="sortedNewsList.length > 0">
                 <div class="newsBox">
                     <div class="newsPic">
                         <figure :style="{ backgroundImage: `url(${news.imageUrl})` }"></figure>
@@ -38,27 +40,47 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 // 引入新闻图片
 import newsCover1 from '@/assets/img/news/cover/20250801.webp'
 import newsCover2 from '@/assets/img/news/cover/20250930.webp'
 
-const newsList = ref([
-    {
-        id: 1,  // 添加唯一ID
-        date: '2025.8.1',
-        title: '【飞眸医疗】飞秒激光变革眼科术式',
-        imageUrl: newsCover1
-    },
-    {
-        id: 2,
-        date: '2025.9.30',
-        title: '热烈祝贺！飞眸医疗喜获粤港澳大湾区创业大赛全国总决赛铜奖！',
-        imageUrl: newsCover2
-    }
-])
+const { t, locale, messages } = useI18n({ useScope: 'global' })
+
+// ✅ 计算属性：判断是否为英文
+const isEnglish = computed(() => locale.value === 'en')
+
+// 图片映射表
+const newsImages = {
+  1: newsCover1,
+  2: newsCover2
+}
+
+// ✅ 安全获取翻译数据
+const newsList = computed(() => {
+  // 直接读取原始消息对象，不使用 t() 函数
+  const currentMessages = messages.value[locale.value] || messages.value['zh-CN']
+  
+  console.log('当前语言:', locale.value)
+  console.log('消息对象:', currentMessages)
+  
+  // 安全获取 items，确保是数组
+  const items = currentMessages?.newsCenter?.items || []
+  
+  if (!Array.isArray(items)) {
+    return []
+  }
+  
+  return items.map(item => ({
+    id: item.id,
+    date: item.date,
+    title: item.title,
+    imageUrl: newsImages[item.id]
+  }))
+})
 
 const sortedNewsList = computed(() => {
-    return [...newsList.value].sort((a, b) => b.id - a.id) // ID降序排列
+  return [...newsList.value].sort((a, b) => b.id - a.id)
 })
 </script>
 

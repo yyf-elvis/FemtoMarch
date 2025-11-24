@@ -1,8 +1,8 @@
 <template>
   <div class="history-container">
     <!-- 上方：Swiper轮播图 -->
-    <div class="swiper-section">
-            <Swiper
+    <div class="swiper-section" v-if="historyList.length > 0">
+      <Swiper
         :modules="modules"
         :slides-per-view="1"
         :space-between="30"
@@ -14,7 +14,6 @@
       >
         <SwiperSlide v-for="(item, index) in historyList" :key="index">
           <div class="slide-content">
-            <!-- 关键修改：使用计算属性动态切换图片 -->
             <img :src="item.image" :alt="item.title" class="slide-image" />
             <div class="slide-info">
               <h2>{{ item.title }}</h2>
@@ -40,9 +39,8 @@
     </div>
 
     <!-- 下方：时间轴 -->
-    <div class="timeline-section">
+    <div class="timeline-section" v-if="historyList.length > 0">
       <div class="timeline-wrapper" ref="timelineRef">
-        <!-- 用真实div替代伪元素 -->
         <div class="timeline-line" ref="timelineLine"></div>
         
         <div 
@@ -61,15 +59,64 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { A11y } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
+
+// 引入 useI18n
+const { locale } = useI18n({ useScope: 'global' })
+
+// ==========================================
+// 组件内硬编码翻译数据（绕过外部文件问题）
+// ==========================================
+const LOCAL_MESSAGES = {
+  'zh-CN': {
+    items: [
+      { 
+        year: '2022', 
+        title: '公司成立', 
+        description: '江苏飞尨激光科技有限公司成立，微光参股（早期孵化）' 
+      },
+      { 
+        year: '2024', 
+        title: '公司更名', 
+        description: '“飞尨激光”更名为“飞眸医疗”' 
+      },
+      { 
+        year: '2025', 
+        title: '取得型检报告', 
+        description: '取得型检报告' 
+      }
+    ]
+  },
+  'en': {
+    items: [
+      { 
+        year: '2022', 
+        title: 'Company Founded', 
+        description: 'Jiangsu Feilong Laser Technology Co., Ltd. established with Weiguang holding shares (early incubation)' 
+      },
+      { 
+        year: '2024', 
+        title: 'Company Renamed', 
+        description: '"Feilong Laser" renamed to "FemtoMarch Medical"' 
+      },
+      { 
+        year: '2025', 
+        title: 'Type Test Report Obtained', 
+        description: 'Type test report obtained' 
+      }
+    ]
+  }
+}
 
 // Swiper模块配置
 const modules = [A11y]
@@ -86,32 +133,28 @@ const updateScreenWidth = () => {
 const getImageUrl = (index) => {
   const basePath = '../assets/img/timeline'
   const imageName = isMobile.value 
-    ? `slide${index}-mobile.webp`  // 移动端图片，如 slide1-mobile.webp
-    : `slide${index}.webp`         // PC端图片
+    ? `slide${index}-mobile.webp`
+    : `slide${index}.webp`
   return new URL(`${basePath}/${imageName}`, import.meta.url).href
 }
 
-// 企业历程数据（使用计算属性确保响应式更新）
-const historyList = computed(() => [
-  { 
-    year: '2022', 
-    title: '公司成立', 
-    description: '江苏飞尨激光科技有限公司成立微光参股（早期孵化）', 
-    image: getImageUrl(1) 
-  },
-  { 
-    year: '2024', 
-    title: '公司更名', 
-    description: '“飞尨激光”更名为“飞眸医疗”', 
-    image: getImageUrl(2) 
-  },
-  { 
-    year: '2025', 
-    title: '取得型检报告', 
-    description: '取得型检报告', 
-    image: getImageUrl(3) 
-  },
-])
+// 企业历程数据（使用硬编码翻译）
+const historyList = computed(() => {
+  const currentLocale = locale.value
+  console.log('当前语言:', currentLocale)
+  console.log('可用翻译:', Object.keys(LOCAL_MESSAGES))
+  
+  // 获取对应语言的数据
+  const items = LOCAL_MESSAGES[currentLocale]?.items || LOCAL_MESSAGES['zh-CN'].items
+  
+  // 合并图片路径
+  return items.map((item, index) => ({
+    year: String(item.year),
+    title: item.title,
+    description: item.description,
+    image: getImageUrl(index + 1)
+  }))
+})
 
 // 引用声明
 const currentIndex = ref(0)
@@ -179,17 +222,18 @@ onMounted(() => {
   nextTick(() => {
     updateTimelineLineWidth()
     window.addEventListener('resize', handleResize)
-    window.addEventListener('resize', updateScreenWidth) // 添加屏幕宽度监听
+    window.addEventListener('resize', updateScreenWidth)
   })
 })
 
 // 生命周期-卸载
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
-  window.removeEventListener('resize', updateScreenWidth) // 移除监听
+  window.removeEventListener('resize', updateScreenWidth)
 })
 </script>
 
 <style scoped>
 @import url("../assets/css/CompanyHistory.css");
+
 </style>

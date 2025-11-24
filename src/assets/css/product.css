@@ -81,10 +81,13 @@
     padding: 0 32px;
 }
 
-.emphasize {
-    color: var(--theme);
+:deep(.emphasize) {
+  font-weight: 700;
+  color:var(--theme); /* 或你需要的颜色 */
 }
-
+.english-title {
+  font-size: 2rem !important;
+}
 .advantageCotainer {
     background-color: var(--gray);
     margin: 80px auto;

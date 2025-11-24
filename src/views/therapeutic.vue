@@ -8,22 +8,22 @@
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
             <div class="row my-auto">
                 <div class="col-lg-5" v-scroll-reveal>
-                    <h1 class="mb-3">
-                        眼科飞秒激光治疗系统
+                    <h1 class="mb-3" :class="{ 'english-title': isEnglish }">
+                        {{ $t('therapeutic.banner.title') }}
                     </h1>
                     <div class="fs-lg">
-                        FemtoMarch OFAST-4000A：极速激光，智能交互，卓越价值，革新屈光手术新时代。
+                        {{ $t('therapeutic.banner.desc') }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <!-- ✅ 修复：必须使用 v-html 渲染包含 HTML 标签的字符串 -->
     <div class="productInfo" v-scroll-reveal>
-        <p>治疗速度快，治疗时间相较于主流产品缩短<span class="emphasize">50% </span></p>
-        <p>操作界面更智能，<span class="emphasize">中文界面</span>人机交互方便友好</p>
-        <p>性价比高，使用和维护成本相较于进口产品下降<span class="emphasize">30%</span></p>
+        <p v-html="$t('therapeutic.features[0]')"></p>
+        <p v-html="$t('therapeutic.features[1]')"></p>
+        <p v-html="$t('therapeutic.features[2]')"></p>
     </div>
 
     <div class="advantageCotainer">
@@ -32,37 +32,27 @@
                 <img src="../assets/img/product.webp">
             </div>
             <div class="advantageText" v-scroll-reveal>
-                <p class="title">主要优势</p>
-                <p><span class="iconCheck"></span>角膜地形图引导，眼球旋转补偿，精准测量角膜像差</p>
-                <p><span class="iconCheck"></span>个性化精准切削模型，矫正球差</p>
-                <p><span class="iconCheck"></span>激光切削时间小于10秒</p>
-                <p><span class="iconCheck"></span>水平控制和中心定位</p>
+                <p class="title">{{ $t('therapeutic.advantages.title') }}</p>
+                <p><span class="iconCheck"></span>{{ $t('therapeutic.advantages.items[0]') }}</p>
+                <p><span class="iconCheck"></span>{{ $t('therapeutic.advantages.items[1]') }}</p>
+                <p><span class="iconCheck"></span>{{ $t('therapeutic.advantages.items[2]') }}</p>
+                <p><span class="iconCheck"></span>{{ $t('therapeutic.advantages.items[3]') }}</p>
             </div>
         </div>
     </div>
-
-    <!-- <div class="warp">
-        <div class="manualWarp">
-            <div class="newsTitle">
-                <div class="title">产品手册</div>
-                <div class="markBar"></div>
-            </div>
-
-            <div class="manual">
-                <img src="../assets/img/manualBg.webp" class="manualImage">
-                <div class="mask">
-                    <button class="view-details-btn">查看详情</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
 
+const { locale } = useI18n({ useScope: 'global' });
+const isEnglish = computed(() => locale.value === 'en');
 </script>
 
 <style scoped>
 @import url("../assets/css/product.css");
 @import url("../assets/css/product-flex.css");
+
+
 </style>

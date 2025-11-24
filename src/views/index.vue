@@ -8,7 +8,7 @@
     <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
       <div class="row my-auto" v-scroll-reveal>
         <div class="col-lg-5">
-          <h1 class="mb-3">{{ $t('index.banner.title') }}</h1>
+          <h1 class="mb-3" :class="{ 'english-title': isEnglish }">{{ $t('index.banner.title') }}</h1>
           <div class="fs-lg" v-html="$t('index.banner.desc')"></div>
           <router-link to="/therapeutic">
             <button>{{ $t('index.banner.btn') }}</button>
@@ -45,7 +45,7 @@
     </div>
     <div class="medalBox">
       <div v-for="(medal, index) in medals" :key="index" class="medalItem">
-        <div class="medal\_icon icon1">
+        <div class="medalIcon">
           <div class="medalImg">
             <img :src="medal.icon" alt="" />
           </div>
@@ -91,9 +91,9 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import SwiperComponent from '../components/SwiperComponent.vue'
+import SwiperComponent from '../components/swiperComponent.vue'
 
 // 奖牌图片
 import medal1 from '@/assets/img/medal1.png'
@@ -106,6 +106,9 @@ import newsCover1 from '@/assets/img/news/cover/20250801.webp'
 import newsCover2 from '@/assets/img/news/cover/20250930.webp'
 
 const { locale } = useI18n()
+
+// 判断是否为英文
+const isEnglish = computed(() => locale.value === 'en')
 
 // 奖牌数据
 const medals = ref([
@@ -130,4 +133,5 @@ watch(locale, (newVal) => {
 <style scoped>
 @import url("../assets/css/index.css");
 @import url("../assets/css/index-flex.css");
+
 </style>

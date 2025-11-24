@@ -1,6 +1,5 @@
 export default {
   nav: {
-    logo: '/img/logo-en.webp',
     home: 'Home',
     about: 'About Us',
     products: 'Products',
@@ -13,7 +12,6 @@ export default {
     diagnostic: 'Ophthalmic Diagnostic Devices'
   },
   footer: {
-    logo: '/img/footerLogo-en.svg',
     slogan: 'FemtoMarch, China Precision<br>The Ophthalmologist\'s Second Scalpel',
     aboutTitle: 'About Us',
     company: 'Company Profile',

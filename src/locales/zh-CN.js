@@ -1,6 +1,5 @@
 export default {
   nav: {
-    logo: '/img/logo-zh.webp',
     home: '首页',
     about: '关于飞眸',
     products: '产品中心',
@@ -13,7 +12,6 @@ export default {
     diagnostic: '眼科诊断器械'
   },
   footer: {
-    logo: '/img/footerLogo-zh.svg',
     slogan: '飞眸医疗，中国精度<br>眼科医生的第二把柳叶刀',
     aboutTitle: '关于飞眸',
     company: '公司介绍',

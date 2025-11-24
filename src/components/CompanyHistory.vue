@@ -71,6 +71,21 @@ import { A11y } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
+// ✅ 1. 显式导入所有图片（从 components 目录向上两级到 assets/img/timeline）
+import slide1 from '../assets/img/timeline/slide1.webp'
+import slide1Mobile from '../assets/img/timeline/slide1-mobile.webp'
+import slide2 from '../assets/img/timeline/slide2.webp'
+import slide2Mobile from '../assets/img/timeline/slide2-mobile.webp'
+import slide3 from '../assets/img/timeline/slide3.webp'
+import slide3Mobile from '../assets/img/timeline/slide3-mobile.webp'
+
+// ✅ 2. 建立图片映射表
+const imageMap = {
+  1: { desktop: slide1, mobile: slide1Mobile },
+  2: { desktop: slide2, mobile: slide2Mobile },
+  3: { desktop: slide3, mobile: slide3Mobile }
+}
+
 // 引入 useI18n
 const { locale } = useI18n({ useScope: 'global' })
 
@@ -88,7 +103,7 @@ const LOCAL_MESSAGES = {
       { 
         year: '2024', 
         title: '公司更名', 
-        description: '“飞尨激光”更名为“飞眸医疗”' 
+        description: '"飞尨激光"更名为"飞眸医疗"' 
       },
       { 
         year: '2025', 
@@ -129,74 +144,63 @@ const updateScreenWidth = () => {
   isMobile.value = window.innerWidth < 768
 }
 
-// 修改图片获取函数：根据屏幕宽度返回对应图片
+// ✅ 3. 重写图片获取函数
 const getImageUrl = (index) => {
-  const basePath = '../assets/img/timeline'
-  const imageName = isMobile.value 
-    ? `slide${index}-mobile.webp`
-    : `slide${index}.webp`
-  return new URL(`${basePath}/${imageName}`, import.meta.url).href
+  const imageSet = imageMap[index]
+  if (!imageSet) return '' // 防御性处理，避免越界
+  
+  return isMobile.value ? imageSet.mobile : imageSet.desktop
 }
 
 // 企业历程数据（使用硬编码翻译）
 const historyList = computed(() => {
   const currentLocale = locale.value
-  console.log('当前语言:', currentLocale)
-  console.log('可用翻译:', Object.keys(LOCAL_MESSAGES))
-  
-  // 获取对应语言的数据
   const items = LOCAL_MESSAGES[currentLocale]?.items || LOCAL_MESSAGES['zh-CN'].items
   
-  // 合并图片路径
   return items.map((item, index) => ({
     year: String(item.year),
     title: item.title,
     description: item.description,
-    image: getImageUrl(index + 1)
+    image: getImageUrl(index + 1) // ✅ 使用重写后的函数
   }))
 })
 
-// 引用声明
+// ... 下面所有代码保持不变 ...
 const currentIndex = ref(0)
 const swiperRef = ref(null)
 const timelineRef = ref(null)
-const timelineItems = ref([])
 const timelineLine = ref(null)
 
-// Swiper滑动事件
 const onSlideChange = (swiper) => {
   currentIndex.value = swiper.realIndex
   scrollToActiveTimeline()
 }
 
-// 轮播图控制-上一张
 const swiperPrev = () => {
-  if (swiperRef.value && currentIndex.value > 0) {
+  if (swiperRef.value && swiperRef.value.$el && swiperRef.value.$el.swiper) {
     swiperRef.value.$el.swiper.slidePrev()
   }
 }
 
-// 轮播图控制-下一张
 const swiperNext = () => {
-  if (swiperRef.value && currentIndex.value < historyList.value.length - 1) {
+  if (swiperRef.value && swiperRef.value.$el && swiperRef.value.$el.swiper) {
     swiperRef.value.$el.swiper.slideNext()
   }
 }
 
-// 时间轴点击跳转
 const goToSlide = (index) => {
-  if (swiperRef.value) {
+  if (swiperRef.value && swiperRef.value.$el && swiperRef.value.$el.swiper) {
     currentIndex.value = index
     swiperRef.value.$el.swiper.slideTo(index)
     scrollToActiveTimeline()
   }
 }
 
-// 滚动时间轴到当前选中项
 const scrollToActiveTimeline = async () => {
   await nextTick()
-  if (timelineItems.value[currentIndex.value]) {
-    timelineItems.value[currentIndex.value].scrollIntoView({
+  const item = timelineItems.value[currentIndex.value]
+  if (item) {
+    item.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center'
@@ -204,7 +208,6 @@ const scrollToActiveTimeline = async () => {
   }
 }
 
-// 计算并设置时间轴线宽度为滚动内容总宽度
 const updateTimelineLineWidth = async () => {
   await nextTick()
   if (timelineLine.value && timelineRef.value) {
@@ -212,12 +215,10 @@ const updateTimelineLineWidth = async () => {
   }
 }
 
-// 窗口大小改变时重新计算
 const handleResize = () => {
   updateTimelineLineWidth()
 }
 
-// 生命周期-挂载
 onMounted(() => {
   nextTick(() => {
     updateTimelineLineWidth()
@@ -226,7 +227,6 @@ onMounted(() => {
   })
 })
 
-// 生命周期-卸载
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
   window.removeEventListener('resize', updateScreenWidth)
@@ -235,5 +235,4 @@ onUnmounted(() => {
 
 <style scoped>
 @import url("../assets/css/CompanyHistory.css");
-
 </style>

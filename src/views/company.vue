@@ -8,7 +8,7 @@
         <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
             <div class="row my-auto">
                 <div class="col-lg-5">
-                    <h1 class="mb-3">
+                    <h1 class="mb-3" :class="{ 'en-title': isEnglish }">
                         {{ $t('company.banner.title') }}
                     </h1>
                     <div class="fs-lg">
@@ -35,10 +35,11 @@
 
 <script setup>
 import CompanyHistory from '@/components/CompanyHistory.vue'
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 
-const { t } = useI18n({ useScope: 'global' });
-console.log('company.vue - companyHistory:', t('companyHistory'))
+const { t, locale } = useI18n({ useScope: 'global' })
+const isEnglish = computed(() => locale.value === 'en')
 </script>
 
 <style scoped>

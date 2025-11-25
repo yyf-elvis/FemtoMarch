@@ -9,7 +9,9 @@
     <div class="pt-5 py-lg-10 textContainer min-vh-lg-50 order-lg-1">
       <div class="row my-auto">
         <div class="col-lg-5">
-          <h1 class="mb-3">{{ t('career.banner.title') }}</h1>
+          <h1 class="mb-3" :class="{ 'en-title': isEnglish }">
+            {{ t('career.banner.title') }}
+          </h1>
           <div class="fs-lg" v-html="t('career.banner.desc')"></div>
         </div>
       </div>
@@ -47,7 +49,10 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n({ useScope: 'global' });  
+import { computed } from 'vue'
+
+const { t, locale } = useI18n({ useScope: 'global' })
+const isEnglish = computed(() => locale.value === 'en') 
 </script>
 
 <style scoped>

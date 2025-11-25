@@ -40,7 +40,7 @@
     }
 
     h1 {
-        font-size: 40px !important;
+        font-size: 40px;
     }
 
     .fs-lg {
@@ -59,10 +59,16 @@
     .slogan p,.hireText{
     font-size: 16px;
     }
+    h1.en-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
 }
 
 @media (max-width: 920px) {
-
+.english-title {
+    font-size: 1.75rem !important;
+  }
 }
 
 @media (max-width:1200px) {

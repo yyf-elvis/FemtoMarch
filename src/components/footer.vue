@@ -60,7 +60,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import footerLogoEn from '../assets/img/footerLogo-en.svg'
 import footerLogoZh from '../assets/img/footerLogo-zh.svg'
-import qrcodeSrc from '@/assets/img/qrcode.png'
+import qrcodeSrc from '@/assets/img/qrcode.webp'
 
 const { t, locale } = useI18n()
 

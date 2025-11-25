@@ -16,7 +16,7 @@
           <div class="qr-code-container qr-code">
             <div class="qr-code-block">
               <div class="qrcode qr-code-image">
-                <img class="image" src="@/assets/img/qrcode.png">
+                <img class="image" src="@/assets/img/qrcode.webp">
               </div>
               <div class="tips-info">使用微信"扫一扫"</div>
               <div class="arrow"></div>

@@ -117,12 +117,12 @@ const LOCAL_MESSAGES = {
       { 
         year: '2022', 
         title: 'Company Founded', 
-        description: 'Jiangsu Feilong Laser Technology Co., Ltd. established with Weiguang holding shares (early incubation)' 
+        description: 'Jiangsu FeiMang Laser Technology Co., Ltd. established with VivoLight holding shares (early incubation)' 
       },
       { 
         year: '2024', 
         title: 'Company Renamed', 
-        description: '"Feilong Laser" renamed to "FemtoMarch Medical"' 
+        description: '"FeiMang Laser" renamed to "FemtoMarch Medical"' 
       },
       { 
         year: '2025', 

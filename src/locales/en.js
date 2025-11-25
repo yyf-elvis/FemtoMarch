@@ -61,7 +61,7 @@ export default {
     slogan: 'Adhering to the company\'s culture, trust and values, we are committed to creating an ideal balance between personal life and a vibrant workplace for our employees<br/>We believe it is crucial to help new members integrate quickly and perform at their best<br/>Therefore, every new team member receives a tailored onboarding program to master unfamiliar tasks and processes step by step',
     hire: {
       title: 'Job Openings',
-      text: 'Our job openings are posted on the following platforms<br>You are also welcome to send your resume to: hr@femtomarch.com'
+      text: 'Our job openings are posted on the following platforms<br>You are also welcome to send your resume to:'
     }
   },
   company: {

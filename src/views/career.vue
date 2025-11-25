@@ -25,7 +25,10 @@
         <div class="title">{{ t('career.hire.title') }}</div>
         <div class="markBar"></div>
       </div>
-      <div class="hireText" v-html="t('career.hire.text')"></div>
+      <div class="hireText">
+        <span v-html="t('career.hire.text')"></span>
+        <span class="email">hr@femtomarch.com</span>
+      </div>
 
       <div class="platform">
         <div class="platformBox">

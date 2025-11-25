@@ -155,6 +155,7 @@
 import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 // nav.vue
 import logoEn from '/src/assets/img/logo-en.webp'
 import logoZh from '/src/assets/img/logo-zh.webp'

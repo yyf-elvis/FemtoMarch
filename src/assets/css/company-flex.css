@@ -56,7 +56,9 @@
 }
 
 @media (max-width: 920px) {
-
+.english-title {
+    font-size: 1.75rem !important;
+  }
 }
 
 @media (max-width:1200px) {

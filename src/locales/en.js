@@ -39,10 +39,9 @@ export default {
       learn: 'About Us'
     },
     medals: [
-      'National Intellectual Property Leader',
-      'National High-tech Enterprise',
-      'National Intellectual Property Leader',
-      'National High-tech Enterprise'
+      'Hold multiple invention patents',
+      'Hold multiple utility model patents',
+      'Grant a design patent'
     ],
     news: {
       title: 'News & Events',

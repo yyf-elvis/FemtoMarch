@@ -97,9 +97,8 @@ import SwiperComponent from '../components/swiperComponent.vue'
 
 // 奖牌图片
 import medal1 from '@/assets/img/medal1.png'
-import medal2 from '@/assets/img/medal2.png'
-import medal3 from '@/assets/img/medal3.png'
-import medal4 from '@/assets/img/medal4.png'
+import medal2 from '@/assets/img/medal1.png'
+import medal3 from '@/assets/img/medal1.png'
 
 // 新闻封面
 import newsCover1 from '@/assets/img/news/cover/20250801.webp'
@@ -114,8 +113,7 @@ const isEnglish = computed(() => locale.value === 'en')
 const medals = ref([
   { icon: medal1 },
   { icon: medal2 },
-  { icon: medal3 },
-  { icon: medal4 }
+  { icon: medal3 }
 ])
 
 // 新闻数据（只留图片，文字走 i18n）

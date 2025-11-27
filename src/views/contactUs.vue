@@ -1,5 +1,5 @@
 <template>
-    <div class="bannerContainer mb-9 mb-lg-0">
+  <div class="bannerContainer mb-9 mb-lg-0">
         <div class="background background-cover">
             <picture>
                 <img class="w-100 h-100 img-cover" src="../assets/img/banner-contactUs.webp">
@@ -19,48 +19,58 @@
         </div>
     </div>
 
-    <div class="warp">
-        <div class="support">
-            <div class="newsTitle">
-                <div class="title">{{ $t('contactUs.contact.title') }}</div>
-                <div class="markBar"></div>
-            </div>
-            <div class="contactWarp">
-                <div class="emailPhone">
-                    <div class="email">
-                        <p class="subTitle">{{ $t('contactUs.contact.emailLabel') }}</p>
-                        <p>sales@femtomarch.com</p>
-                    </div>
-                    <div class="phone">
-                        <p class="subTitle">{{ $t('contactUs.contact.phoneLabel') }}</p>
-                        <!-- ✅ 动态显示电话号码 -->
-                        <p>{{ $t('contactUs.contact.phoneNumber') }}</p>
-                    </div>
-                </div>
-                <!-- 深圳地址 -->
-                <div class="addr">
-                    <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
-                    <p>{{ $t('contactUs.contact.shenzhenAddress') }}</p>
-                </div>
-                <div class="map">
-                    <ShenzhenMap />
-                </div>
-                <!-- 西安地址 -->
-                <div class="addr xian">
-                    <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
-                    <p>{{ $t('contactUs.contact.xianAddress') }}</p>
-                </div>
-                <div class="map">
-                    <XianMap />
-                </div>
-            </div>
+  <div class="warp">
+    <div class="support">
+      <div class="newsTitle">
+        <div class="title">{{ $t('contactUs.contact.title') }}</div>
+        <div class="markBar"></div>
+      </div>
+      
+      <div class="contactWarp">
+        <!-- 深圳地图 -->
+        <div class="addr">
+          <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
+          <p>{{ $t('contactUs.contact.shenzhenAddress') }}</p>
         </div>
+        <div class="map">
+          <!-- ✅ 使用通用组件，传入唯一ID和配置 -->
+          <BaseMap 
+            containerId="shenzhen-map"
+            :center="[113.922382, 22.577336]"
+            :zoom="16"
+            :marker="{
+              position: [113.922382, 22.577336],
+              name: '深圳市飞眸医疗器械技术有限公司',
+              desc: '总部'
+            }"
+          />
+        </div>
+
+        <!-- 西安地图 -->
+        <div class="addr xian">
+          <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
+          <p>{{ $t('contactUs.contact.xianAddress') }}</p>
+        </div>
+        <div class="map">
+          <!-- ✅ 使用通用组件，传入不同ID和配置 -->
+          <BaseMap 
+            containerId="xian-map"
+            :center="[108.810537, 34.17072]"
+            :zoom="16"
+            :marker="{
+              position: [108.810537, 34.17072],
+              name: '深圳市飞眸医疗器械技术有限公司',
+              desc: '西安分公司'
+            }"
+          />
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-import XianMap from '@/components/XianMap.vue';
-import ShenzhenMap from '@/components/ShenzhenMap.vue';
+import BaseMap from '@/components/BaseMap.vue'; // ✅ 引入通用组件
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n({ useScope: 'global' });
@@ -69,4 +79,10 @@ const { t } = useI18n({ useScope: 'global' });
 <style scoped>
 @import url("../assets/css/contactUs.css");
 @import url("../assets/css/contactUs-flex.css");
+
+/* ✅ 确保地图容器有固定高度 */
+.map {
+  height: 500px; /* 或根据设计调整 */
+  margin-bottom: 30px;
+}
 </style>

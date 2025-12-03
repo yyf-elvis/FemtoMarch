@@ -31,7 +31,7 @@
       <div class="emailPhone">
         <div>
           <p class="subTitle">邮箱：</p>
-          <p>support@femtomarch.com</p>
+          <p>sales@femtomarch.com</p>
         </div>
         <div>
           <p class="subTitle">联系电话：</p>

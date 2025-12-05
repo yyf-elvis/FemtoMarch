@@ -38,12 +38,12 @@
                 <div class="markBar"></div>
             </div>
 
-            <div class="manual">
+            <!-- <div class="manual">
                 <img src="../assets/img/manualBg.webp" class="manualImage">
                 <div class="mask">
                     <button class="view-details-btn">查看详情</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

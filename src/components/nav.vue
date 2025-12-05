@@ -43,11 +43,11 @@
                       @click="handleSubMenuClick('therapeutic')">
                       {{ t('nav.therapeutic') }}
                   </router-link>
-                  <!-- <router-link to="/diagnostic" class="dropdown-item"
+                  <router-link to="/" class="dropdown-item"
                       :class="{ active: activeMenu === 'diagnostic' }"
                       @click="handleSubMenuClick('diagnostic')">
                       {{ t('nav.diagnostic') }}
-                  </router-link> -->
+                  </router-link>
               </ul>
           </div>
           <div class="menuList whinherit flexC" :class="{ navActive: activeMenu === 'news' }">
@@ -116,11 +116,11 @@
                       <li class="dropdown-item" :class="{ active: activeMenu === 'therapeutic' }"
                           @click="handleSubMenuClick('therapeutic')">{{ t('nav.therapeutic') }}</li>
                   </router-link>
-                  <!-- <router-link to="/diagnostic" class="dropdown-item"
+                   <router-link to="/" class="dropdown-item"
                       :class="{ active: activeMenu === 'diagnostic' }"
                       @click="handleSubMenuClick('diagnostic')">
                       {{ t('nav.diagnostic') }}
-                  </router-link> -->
+                  </router-link>
               </ul>
           </li>
           <li class="nav-item mobile-dropdown dropdown-hover">

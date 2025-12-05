@@ -118,6 +118,10 @@
     flex-direction: row;
     gap: 300px;
 }
+.phone{
+    margin-top: 20px;
+    width: 300px;
+}
 .contactWarp p{
     font-size: 20px;
     /* margin-bottom: 10px; */

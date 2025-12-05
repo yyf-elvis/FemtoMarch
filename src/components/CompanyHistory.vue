@@ -97,18 +97,18 @@ const LOCAL_MESSAGES = {
     items: [
       { 
         year: '2022', 
-        title: '公司成立', 
+        title: '公司成立：江苏飞尨激光成立', 
         description: '江苏飞尨激光科技有限公司成立，微光参股（早期孵化）' 
       },
       { 
         year: '2024', 
-        title: '公司更名', 
+        title: '公司更名：飞眸医疗', 
         description: '"飞尨激光"更名为"飞眸医疗"' 
       },
       { 
         year: '2025', 
-        title: '取得型检报告', 
-        description: '取得型检报告' 
+        title: '迁址：正式入驻丰泽科技园', 
+        description: '2025年12月正式入驻丰泽科技园' 
       }
     ]
   },

@@ -55,9 +55,9 @@ export default {
   career: {
     banner: {
       title: 'Work at FemtoMarch',
-      desc: 'Shaping the future of medical care with breakthrough technology and setting new industry benchmarks through continuous innovation'
+      desc: 'Through technological breakthroughs, we shape the future of healthcare; through continuous innovation, we establish new industry benchmarks.'
     },
-    slogan: 'Adhering to the company\'s culture, trust and values, we are committed to creating an ideal balance between personal life and a vibrant workplace for our employees<br/>We believe it is crucial to help new members integrate quickly and perform at their best<br/>Therefore, every new team member receives a tailored onboarding program to master unfamiliar tasks and processes step by step',
+    slogan: 'Grounded in our corporate mission, culture, and values, we are committed to fostering a harmonious balance between employee personal lives and professional development.<br/>We firmly believe that empowering new employees to integrate quickly and fully realize their professional potential is of paramount importance.<br/>To this end, each new member receives a customized onboarding program to systematically master job responsibilities and business processes.',
     hire: {
       title: 'Job Openings',
       text: 'Our job openings are posted on the following platforms<br>You are also welcome to send your resume to:'
@@ -66,7 +66,7 @@ export default {
   company: {
     banner: {
       title: 'About FemtoMarch',
-      desc: 'To Become the World\'s Most Valuable Ophthalmic Medical Device Company'
+      desc: 'To be a worldwide leader in premium ophthalmology devices'
     },
     brief: {
       title: 'About FemtoMarch Medical',
@@ -112,7 +112,7 @@ therapeutic: {
 contactUs: {
   banner: {
     title: 'Contact Us',
-    desc: 'We would be delighted to hear from you. If you have any questions about our products and services, please contact us.'
+    desc: 'If you have any questions or concerns, we are always happy to help.'
   },
   contact: {
     title: 'Contact Information',

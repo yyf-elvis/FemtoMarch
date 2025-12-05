@@ -30,12 +30,8 @@
     <div class="contactWarp">
       <div class="emailPhone">
         <div>
-          <p class="subTitle">邮箱：</p>
+          <p class="subTitle">{{ $t('contactUs.contact.emailLabel') }}</p>
           <p>sales@femtomarch.com</p>
-        </div>
-        <div>
-          <p class="subTitle">联系电话：</p>
-          <p>029-68880228</p>
         </div>
       </div>
       <!-- 深圳地图 -->
@@ -53,16 +49,22 @@
       </div>
 
       <!-- 西安地图 -->
-      <div class="addr xian">
-        <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
-        <p>{{ $t('contactUs.contact.xianAddress') }}</p>
+      <div class="emailPhone">
+        <div class="addr xian">
+          <p class="subTitle">{{ $t('contactUs.contact.addressLabel') }}</p>
+          <p>{{ $t('contactUs.contact.xianAddress') }}</p>
+        </div>
+        <div class="phone">
+          <p class="subTitle">{{ $t('contactUs.contact.phoneLabel') }}</p>
+          <p>{{ $t('contactUs.contact.phoneNumber') }}</p>
+        </div>
       </div>
       <div class="map">
         <!-- ✅ 使用通用组件，传入不同ID和配置 -->
         <BaseMap containerId="xian-map" :center="[108.810537, 34.17072]" :zoom="16" :marker="{
           position: [108.810537, 34.17072],
-          name: '深圳市飞眸医疗器械技术有限公司',
-          desc: '西安分公司'
+          name: '深圳市飞眸医疗器械技术有限公司西安子公司',
+          desc: '（西安溯宇光电科技有限公司）'
         }" />
       </div>
     </div>

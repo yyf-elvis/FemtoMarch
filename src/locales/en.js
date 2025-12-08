@@ -79,14 +79,14 @@ export default {
     desc: 'Focus on Ophthalmic Treatment and Diagnosis'
   },
   mission: {
-    title: 'Our Mission',
-    subtitle: 'Making Femtosecond Laser the Ophthalmologist\'s Second Scalpel',
-    text: 'The mission of FemtoMarch Medical is to "make femtosecond laser the second scalpel for ophthalmologists," revolutionizing ophthalmic procedures through femtosecond laser to bring patients safe, fast, precise, and cost-effective surgical solutions.'
-  },
+  title: 'Our Mission',
+  subtitle: 'To make FemtoMarch Medical the second scalpel for ophthalmologists',
+  text: "Lancet, the surgeon's blade. FemtoMarch's mission is to replace the ophthalmologist's scalpel with femtosecond laser technology achieving full coverage of eye procedures and conditions, so patients benefit from more precise treatments and superior visual outcomes."
+},
   vision: {
     title: 'Our Vision',
-    subtitle: 'Reshaping the Paradigm of Refractive Surgery with "Chinese Precision"',
-    text: 'We look forward to reshaping the paradigm of refractive surgery with "Chinese precision" and establishing a replicable technology-industry closed-loop paradigm for domestic high-end medical equipment in the ophthalmic femtosecond laser segment.'
+    subtitle: 'To become the global leader in high-end ophthalmic diagnostic and therapeutic devices.',
+    text: 'FemtoMarch is positioned as a comprehensive platform company for high-end ophthalmic laser diagnosis and treatment, dedicated to becoming a global innovator and leader in this field.'
   }
 },
 therapeutic: {

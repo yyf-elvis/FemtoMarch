@@ -47,7 +47,7 @@
         </div>
         <div class="ICPInfo">
           {{ t('footer.copyright', { company: t('footer.companyName') }) }}&nbsp;&nbsp;&nbsp;
-          {{ t('footer.icp') }}&nbsp;&nbsp;&nbsp;
+          <a href="https://beian.miit.gov.cn" target="_blank">{{ t('footer.icp') }}</a>&nbsp;&nbsp;&nbsp;
           {{ t('footer.police') }}
         </div>
       </div>

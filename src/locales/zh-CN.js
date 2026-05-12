@@ -24,7 +24,7 @@ export default {
     followTitle: '关注我们',
     copyright: 'Copyright © 2025 {company}',
     companyName: '深圳市飞眸医疗器械技术有限公司',
-    icp: '粤ICP备2025504185号-1',
+    icp: '粤ICP备2025504185号-2',
     police: ''
   },
   index: {

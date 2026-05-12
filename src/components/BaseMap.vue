@@ -27,7 +27,7 @@ const mapInstance = shallowRef(null); // ✅ 核心：避免响应式污染
 const initMap = async () => {
   try {
     const AMap = await AMapLoader.load({
-      key: '5630c29d5daee8b36d34cd20d12ba569',
+      key: '2dfc6e64a4a84243d601c68599aefbb7',
       version: '2.0',
       plugins: ['AMap.InfoWindow']
     });

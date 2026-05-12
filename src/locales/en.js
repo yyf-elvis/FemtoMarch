@@ -24,8 +24,8 @@ export default {
     followTitle: 'Follow Us',
     copyright: 'Copyright © 2025 {company}',
     companyName: 'Shenzhen FemtoMarch Medical Technology Co., Ltd.',
-    icp: 'Shaanxi ICP No. xxxxxxxx',
-    police: 'Shaanxi Public Network Security No. xxxxxxxxxxxxxx'
+    icp: 'Guangdong ICP Filing No. 2025504185-2',
+    police: ''
   },
   index: {
     banner: {

@@ -126,8 +126,8 @@ const LOCAL_MESSAGES = {
       },
       { 
         year: '2025', 
-        title: 'Type Test Report Obtained', 
-        description: 'Type test report obtained' 
+        title: 'Relocation: Officially Established in Fengze Science Park', 
+        description: 'Officially relocate to Fengze Science and Technology Park in December 2025' 
       }
     ]
   }

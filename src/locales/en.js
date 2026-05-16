@@ -55,7 +55,7 @@ export default {
   career: {
     banner: {
       title: 'Work at FemtoMarch',
-      desc: 'Technological breakthroughs shaping the future of healthcare; Continuous innovation setting the industry benchmark.'
+      desc: "Tech breakthroughs shaping healthcare's future; Continuous innovation setting the industry benchmark."
     },
     slogan: 'Grounded in our corporate mission, culture, and values, we are committed to fostering a harmonious balance between employee personal lives and professional development.<br/>We firmly believe that empowering new employees to integrate quickly and fully realize their professional potential is of paramount importance.<br/>To this end, each new member receives a customized onboarding program to systematically master job responsibilities and business processes.',
     hire: {

@@ -213,7 +213,6 @@
     padding: 4px;
     color: var(--textGray);
     font-size: var(--normalFont);
-    text-align: justify;
     text-align-last: center;
 }
 
